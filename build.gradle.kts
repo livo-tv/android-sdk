@@ -1,4 +1,9 @@
 import com.diffplug.gradle.spotless.SpotlessExtension
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
+import org.gradle.api.publish.PublishingExtension
+import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.api.tasks.bundling.Jar
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -46,6 +51,29 @@ subprojects {
 
     afterEvaluate {
         tasks.findByName("detekt")?.dependsOn("spotlessCheck")
+    }
+
+    pluginManager.withPlugin("com.android.library") {
+        pluginManager.withPlugin("com.vanniktech.maven.publish") {
+            extensions.configure<MavenPublishBaseExtension>("mavenPublishing") {
+                configure(
+                    AndroidSingleVariantLibrary(
+                        variant = "release",
+                        sourcesJar = true,
+                        publishJavadocJar = false,
+                    ),
+                )
+            }
+            val javadocJar =
+                tasks.register<Jar>("emptyJavadocJar") {
+                    archiveClassifier.set("javadoc")
+                }
+            extensions
+                .getByType<PublishingExtension>()
+                .publications
+                .withType<MavenPublication>()
+                .configureEach { artifact(javadocJar) }
+        }
     }
 }
 

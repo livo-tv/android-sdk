@@ -91,3 +91,4 @@ Partner apps receive `hostToken` / `guestToken` from their backend (`POST /strea
 - ktlint 1.5 only honors `ktlint_function_naming_ignore_when_annotated_with=Composable` from a root `.editorconfig` (Gradle `editorConfigOverride` alone is ignored). Without it, PascalCase `@Composable` functions fail `spotlessKotlinApply`.
 - Windows checkouts store `*.sh` / `gradlew` as `100644`. CI must `bash ./scripts/ci-check.sh` (and `bash ./gradlew`); `./scripts/ci-check.sh` is exit 126 otherwise. `git update-index --chmod=+x` if a Unix checkout needs `./`.
 - Never `publishToMavenCentral` from a laptop.
+- Android libraries skip AGP Dokka (`publishJavadocJar = false`) and attach an empty `-javadoc.jar`. vanniktech 0.30 has no `JavadocJar.Empty()` on `AndroidSingleVariantLibrary`; 0.36+ needs Kotlin 2.2. AGP 8.8 Dokka cannot read JVM 17 sealed types in `livo-api` (`PermittedSubclasses requires ASM9`). Do not omit the javadoc artifact.
