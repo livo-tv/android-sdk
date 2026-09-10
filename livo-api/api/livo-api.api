@@ -1,0 +1,2792 @@
+public abstract interface class tv/livo/sdk/CookieStore {
+	public abstract fun clear ()V
+	public abstract fun load ()Ljava/lang/String;
+	public abstract fun save (Ljava/lang/String;)V
+}
+
+public final class tv/livo/sdk/CreateStreamRequest {
+	public static final field Companion Ltv/livo/sdk/CreateStreamRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;ZLjava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;ZLjava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun agreeing ()Ltv/livo/sdk/CreateStreamRequest;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/Boolean;
+	public final fun component11 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ltv/livo/sdk/models/StreamMode;
+	public final fun component3 ()Ltv/livo/sdk/models/StreamSource;
+	public final fun component4 ()Ltv/livo/sdk/models/MediaKind;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Integer;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Z
+	public final fun component9 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;ZLjava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Ltv/livo/sdk/CreateStreamRequest;
+	public static synthetic fun copy$default (Ltv/livo/sdk/CreateStreamRequest;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;ZLjava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Ltv/livo/sdk/CreateStreamRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaptionsEnabled ()Z
+	public final fun getCommentsAfterEnd ()Ljava/lang/Boolean;
+	public final fun getCommentsEnabled ()Ljava/lang/Boolean;
+	public final fun getCurtainId ()Ljava/lang/String;
+	public final fun getDurationSeconds ()Ljava/lang/Integer;
+	public final fun getKind ()Ltv/livo/sdk/models/MediaKind;
+	public final fun getMode ()Ltv/livo/sdk/models/StreamMode;
+	public final fun getQaEnabled ()Ljava/lang/Boolean;
+	public final fun getSource ()Ltv/livo/sdk/models/StreamSource;
+	public final fun getStartsAt ()Ljava/lang/Long;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/CreateStreamRequest$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/CreateStreamRequest$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/CreateStreamRequest;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/CreateStreamRequest;)V
+}
+
+public final class tv/livo/sdk/CreateStreamRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/CreateStreamResponse {
+	public static final field Companion Ltv/livo/sdk/CreateStreamResponse$Companion;
+	public fun <init> (Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/IngestInfo;)V
+	public synthetic fun <init> (Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/IngestInfo;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltv/livo/sdk/models/LiveStream;
+	public final fun component2 ()Ltv/livo/sdk/models/IngestInfo;
+	public final fun copy (Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/IngestInfo;)Ltv/livo/sdk/CreateStreamResponse;
+	public static synthetic fun copy$default (Ltv/livo/sdk/CreateStreamResponse;Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/IngestInfo;ILjava/lang/Object;)Ltv/livo/sdk/CreateStreamResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIngest ()Ltv/livo/sdk/models/IngestInfo;
+	public final fun getStream ()Ltv/livo/sdk/models/LiveStream;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/CreateStreamResponse$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/CreateStreamResponse$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/CreateStreamResponse;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/CreateStreamResponse;)V
+}
+
+public final class tv/livo/sdk/CreateStreamResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/CreateVodRequest {
+	public static final field Companion Ltv/livo/sdk/CreateVodRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/Long;Ljava/lang/String;ZLjava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/Long;Ljava/lang/String;ZLjava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Z
+	public final fun component9 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/Long;Ljava/lang/String;ZLjava/lang/Boolean;)Ltv/livo/sdk/CreateVodRequest;
+	public static synthetic fun copy$default (Ltv/livo/sdk/CreateVodRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/Long;Ljava/lang/String;ZLjava/lang/Boolean;ILjava/lang/Object;)Ltv/livo/sdk/CreateVodRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getByteSize ()J
+	public final fun getCaptionsEnabled ()Z
+	public final fun getCommentsEnabled ()Ljava/lang/Boolean;
+	public final fun getContentType ()Ljava/lang/String;
+	public final fun getCurtainId ()Ljava/lang/String;
+	public final fun getFilename ()Ljava/lang/String;
+	public final fun getReleaseAt ()Ljava/lang/Long;
+	public final fun getSha256 ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/CreateVodRequest$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/CreateVodRequest$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/CreateVodRequest;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/CreateVodRequest;)V
+}
+
+public final class tv/livo/sdk/CreateVodRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tv/livo/sdk/CreateVodResult {
+}
+
+public final class tv/livo/sdk/CreateVodResult$Conflict : tv/livo/sdk/CreateVodResult {
+	public fun <init> (Ltv/livo/sdk/models/UploadConflict;)V
+	public final fun component1 ()Ltv/livo/sdk/models/UploadConflict;
+	public final fun copy (Ltv/livo/sdk/models/UploadConflict;)Ltv/livo/sdk/CreateVodResult$Conflict;
+	public static synthetic fun copy$default (Ltv/livo/sdk/CreateVodResult$Conflict;Ltv/livo/sdk/models/UploadConflict;ILjava/lang/Object;)Ltv/livo/sdk/CreateVodResult$Conflict;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ltv/livo/sdk/models/UploadConflict;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/CreateVodResult$Created : tv/livo/sdk/CreateVodResult {
+	public fun <init> (Ltv/livo/sdk/models/CreateVodResponse;)V
+	public final fun component1 ()Ltv/livo/sdk/models/CreateVodResponse;
+	public final fun copy (Ltv/livo/sdk/models/CreateVodResponse;)Ltv/livo/sdk/CreateVodResult$Created;
+	public static synthetic fun copy$default (Ltv/livo/sdk/CreateVodResult$Created;Ltv/livo/sdk/models/CreateVodResponse;ILjava/lang/Object;)Ltv/livo/sdk/CreateVodResult$Created;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ltv/livo/sdk/models/CreateVodResponse;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/CurtainCreateResponse {
+	public static final field Companion Ltv/livo/sdk/CurtainCreateResponse$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltv/livo/sdk/models/Curtain;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+	public synthetic fun <init> (Ltv/livo/sdk/models/Curtain;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltv/livo/sdk/models/Curtain;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun copy (Ltv/livo/sdk/models/Curtain;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ltv/livo/sdk/CurtainCreateResponse;
+	public static synthetic fun copy$default (Ltv/livo/sdk/CurtainCreateResponse;Ltv/livo/sdk/models/Curtain;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Ltv/livo/sdk/CurtainCreateResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurtain ()Ltv/livo/sdk/models/Curtain;
+	public final fun getCurtainId ()Ljava/lang/String;
+	public final fun getPartSize ()J
+	public final fun getUploadId ()Ljava/lang/String;
+	public final fun getVodId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/CurtainCreateResponse$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/CurtainCreateResponse$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/CurtainCreateResponse;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/CurtainCreateResponse;)V
+}
+
+public final class tv/livo/sdk/CurtainCreateResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/LivoApiClient {
+	public static final field Companion Ltv/livo/sdk/LivoApiClient$Companion;
+	public fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/LivoCredentials;Lio/ktor/client/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/LivoCredentials;Lio/ktor/client/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public final fun controlClient (Ljava/lang/String;)Ltv/livo/sdk/StudioControlClient;
+	public final fun getCurtains ()Ltv/livo/sdk/LivoApiClient$CurtainsClient;
+	public final fun getHosts ()Ltv/livo/sdk/LivoHosts;
+	public final fun getKeys ()Ltv/livo/sdk/LivoApiClient$KeysClient;
+	public final fun getMedia ()Ltv/livo/sdk/LivoApiClient$MediaClient;
+	public final fun getOrganization ()Ltv/livo/sdk/LivoApiClient$OrganizationClient;
+	public final fun getPublic ()Ltv/livo/sdk/LivoApiClient$PublicClient;
+	public final fun getStreams ()Ltv/livo/sdk/LivoApiClient$StreamsClient;
+	public final fun getStudio ()Ltv/livo/sdk/LivoApiClient$StudioJoinClient;
+	public final fun getTrash ()Ltv/livo/sdk/LivoApiClient$TrashClient;
+	public final fun getVods ()Ltv/livo/sdk/LivoApiClient$VodsClient;
+	public final fun usage (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$CommunityClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun answer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun answer$default (Ltv/livo/sdk/LivoApiClient$CommunityClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun create (Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ltv/livo/sdk/models/CommunityType;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$CommunityClient;Ltv/livo/sdk/models/CommunityType;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun upvote (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$Companion {
+	public final fun getUNSET ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/LivoApiClient$CurtainsClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun abortUpload (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun complete (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun create (Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun delete (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$CurtainsClient;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun presignPart (Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$KeysClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun create (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$KeysClient;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun revoke (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$MediaClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun list (Ljava/lang/String;Ltv/livo/sdk/models/MediaKind;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$MediaClient;Ljava/lang/String;Ltv/livo/sdk/models/MediaKind;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$OrganizationClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun delete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun settings (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun updateSettings (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun updateSettings$default (Ltv/livo/sdk/LivoApiClient$OrganizationClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$PublicClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun beacon (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun captions (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun community (Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/LivoApiClient$PublicCommunityClient;
+	public final fun presence (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun stream (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun studioJoinGuest (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun studioJoinStatus (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun studioRedeemHost (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun vod (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$PublicCommunityClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun answer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun answer$default (Ltv/livo/sdk/LivoApiClient$PublicCommunityClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun canAnswer (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun create (Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ltv/livo/sdk/models/CommunityType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$PublicCommunityClient;Ltv/livo/sdk/models/CommunityType;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun upvote (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$StreamsClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun community (Ljava/lang/String;)Ltv/livo/sdk/LivoApiClient$CommunityClient;
+	public final fun create (Ltv/livo/sdk/CreateStreamRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$StreamsClient;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun mintHostSession (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun mintHostSession$default (Ltv/livo/sdk/LivoApiClient$StreamsClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun openStudioSession (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun publish (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun start (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun startStudioLivestream (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun stop (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun trash (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$StudioJoinClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun joinGuest (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$TrashClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun deleteForever (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun empty (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$TrashClient;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun restore (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiClient$VodsClient {
+	public fun <init> (Ltv/livo/sdk/LivoApiClient;)V
+	public final fun abortUpload (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun captions (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun community (Ljava/lang/String;)Ltv/livo/sdk/LivoApiClient$CommunityClient;
+	public final fun completeUpload (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun create (Ltv/livo/sdk/CreateVodRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoApiClient$VodsClient;Ljava/lang/String;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun patch (Ljava/lang/String;Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun presignPart (Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun transcode (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun trash (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun uploadParts (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoApiException : java/lang/Exception {
+	public static final field COMMENTS_CLOSED Ljava/lang/String;
+	public static final field Companion Ltv/livo/sdk/LivoApiException$Companion;
+	public static final field DUPLICATE_SOURCE Ljava/lang/String;
+	public static final field PASSWORD_LOGIN_DISABLED Ljava/lang/String;
+	public static final field QA_CLOSED Ljava/lang/String;
+	public static final field SESSION_NOT_FRESH Ljava/lang/String;
+	public static final field STUDIO_HOST_TAKEN Ljava/lang/String;
+	public static final field STUDIO_NOT_AVAILABLE Ljava/lang/String;
+	public static final field STUDIO_NOT_STARTED Ljava/lang/String;
+	public static final field UPLOAD_IN_PROGRESS Ljava/lang/String;
+	public fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getRetryAfterMs ()Ljava/lang/Long;
+	public final fun getStatus ()I
+	public final fun isEnded ()Z
+	public final fun isUnauthenticated ()Z
+}
+
+public final class tv/livo/sdk/LivoApiException$Companion {
+}
+
+public final class tv/livo/sdk/LivoAuthClient {
+	public fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/CookieStore;Lio/ktor/client/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/CookieStore;Lio/ktor/client/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun acceptLegal (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun close ()V
+	public final fun createEnvironment (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun createOrganization (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun decodeJwt (Ljava/lang/String;)Ltv/livo/sdk/models/JwtClaims;
+	public final fun deleteEnvironment (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deletePasskey (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun environmentGrants (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun generateAuthenticateOptions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun generateRegisterOptions (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun generateRegisterOptions$default (Ltv/livo/sdk/LivoAuthClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getHosts ()Ltv/livo/sdk/LivoHosts;
+	public final fun getSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun invitations (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun invite (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun listPasskeys (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun loginMethod (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun members (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun mintJwt (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun previewLicense (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun publicLegal (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun removeMember (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun renameOrganization (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun revokeInvitation (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun sendOtp (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun sessionWithStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setActiveEnvironment (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setActiveOrganization (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setEnvironmentGrants (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun signInGoogle (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun signInGoogle$default (Ltv/livo/sdk/LivoAuthClient;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun signInPassword (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun signOut (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun transferOwnership (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun updateLocale (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun updateMemberRole (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun updatePasskey (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun updateProfile (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun uploadAvatar ([BLjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun uploadAvatar$default (Ltv/livo/sdk/LivoAuthClient;[BLjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun uploadOrgAvatar (Ljava/lang/String;[BLjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun uploadOrgAvatar$default (Ltv/livo/sdk/LivoAuthClient;Ljava/lang/String;[BLjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun verifyAuthentication (Lkotlinx/serialization/json/JsonObject;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun verifyOtp (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun verifyRegistration (Lkotlinx/serialization/json/JsonObject;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun verifyRegistration$default (Ltv/livo/sdk/LivoAuthClient;Lkotlinx/serialization/json/JsonObject;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class tv/livo/sdk/LivoCredentials {
+}
+
+public final class tv/livo/sdk/LivoCredentials$ApiKey : tv/livo/sdk/LivoCredentials {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltv/livo/sdk/LivoCredentials$ApiKey;
+	public static synthetic fun copy$default (Ltv/livo/sdk/LivoCredentials$ApiKey;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/LivoCredentials$ApiKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/LivoCredentials$Bearer : tv/livo/sdk/LivoCredentials {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function1;
+	public final fun component2 ()Lkotlin/jvm/functions/Function1;
+	public final fun copy (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ltv/livo/sdk/LivoCredentials$Bearer;
+	public static synthetic fun copy$default (Ltv/livo/sdk/LivoCredentials$Bearer;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ltv/livo/sdk/LivoCredentials$Bearer;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOnUnauthorized ()Lkotlin/jvm/functions/Function1;
+	public final fun getTokenProvider ()Lkotlin/jvm/functions/Function1;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/LivoCredentials$None : tv/livo/sdk/LivoCredentials {
+	public static final field INSTANCE Ltv/livo/sdk/LivoCredentials$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/LivoHosts {
+	public static final field Companion Ltv/livo/sdk/LivoHosts$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/LivoHosts;
+	public static synthetic fun copy$default (Ltv/livo/sdk/LivoHosts;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/LivoHosts;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApi ()Ljava/lang/String;
+	public final fun getAuth ()Ljava/lang/String;
+	public final fun getAuthWeb ()Ljava/lang/String;
+	public final fun getDashboard ()Ljava/lang/String;
+	public final fun getMetrics ()Ljava/lang/String;
+	public final fun getNotifications ()Ljava/lang/String;
+	public final fun getPlayer ()Ljava/lang/String;
+	public final fun getRealtime ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun studioGuestUrl (Ljava/lang/String;)Ljava/lang/String;
+	public final fun studioUrl (Ljava/lang/String;)Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+	public final fun vodWatchUrl (Ljava/lang/String;)Ljava/lang/String;
+	public final fun watchUrl (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/LivoHosts$Companion {
+	public final fun getDevelopment ()Ltv/livo/sdk/LivoHosts;
+	public final fun getProduction ()Ltv/livo/sdk/LivoHosts;
+	public final fun normalizeApiUrl (Ljava/lang/String;)Ljava/lang/String;
+	public final fun previewStack (Ljava/lang/String;)Ltv/livo/sdk/LivoHosts;
+}
+
+public final class tv/livo/sdk/LivoMetricsClient {
+	public fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/LivoCredentials;Lio/ktor/client/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/LivoCredentials;Lio/ktor/client/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public final fun highlights (Ltv/livo/sdk/models/MetricPeriod;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun highlights$default (Ltv/livo/sdk/LivoMetricsClient;Ltv/livo/sdk/models/MetricPeriod;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun rollups (Ltv/livo/sdk/models/MetricPeriod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun rollups$default (Ltv/livo/sdk/LivoMetricsClient;Ltv/livo/sdk/models/MetricPeriod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun spend (Ltv/livo/sdk/models/MetricPeriod;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun spend$default (Ltv/livo/sdk/LivoMetricsClient;Ltv/livo/sdk/models/MetricPeriod;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoNotificationsClient {
+	public fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/LivoCredentials;Lio/ktor/client/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ltv/livo/sdk/LivoHosts;Ltv/livo/sdk/LivoCredentials;Lio/ktor/client/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public final fun list (ILjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun list$default (Ltv/livo/sdk/LivoNotificationsClient;ILjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun markRead (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun markRead$default (Ltv/livo/sdk/LivoNotificationsClient;Ljava/util/List;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/LivoRealtimeClient {
+	public fun <init> (Ltv/livo/sdk/LivoHosts;Lkotlin/jvm/functions/Function1;Lio/ktor/client/engine/HttpClientEngine;)V
+	public synthetic fun <init> (Ltv/livo/sdk/LivoHosts;Lkotlin/jvm/functions/Function1;Lio/ktor/client/engine/HttpClientEngine;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public final fun subscribe (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class tv/livo/sdk/LivoSdk {
+	public static final field GROUP Ljava/lang/String;
+	public static final field INSTANCE Ltv/livo/sdk/LivoSdk;
+}
+
+public final class tv/livo/sdk/LoginMethod : java/lang/Enum {
+	public static final field OTP Ltv/livo/sdk/LoginMethod;
+	public static final field PASSWORD Ltv/livo/sdk/LoginMethod;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/LoginMethod;
+	public static fun values ()[Ltv/livo/sdk/LoginMethod;
+}
+
+public final class tv/livo/sdk/MembersPayload {
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Ltv/livo/sdk/MembersPayload;
+	public static synthetic fun copy$default (Ltv/livo/sdk/MembersPayload;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ltv/livo/sdk/MembersPayload;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInvitations ()Ljava/util/List;
+	public final fun getMembers ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/MultipartProgress {
+	public fun <init> (JJII)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun copy (JJII)Ltv/livo/sdk/MultipartProgress;
+	public static synthetic fun copy$default (Ltv/livo/sdk/MultipartProgress;JJIIILjava/lang/Object;)Ltv/livo/sdk/MultipartProgress;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBytesSent ()J
+	public final fun getCompletedParts ()I
+	public final fun getTotalBytes ()J
+	public final fun getTotalParts ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/MultipartUploadController {
+	public static final field Companion Ltv/livo/sdk/MultipartUploadController$Companion;
+	public fun <init> (Ltv/livo/sdk/UploadSource;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;JILio/ktor/client/HttpClient;)V
+	public synthetic fun <init> (Ltv/livo/sdk/UploadSource;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;JILio/ktor/client/HttpClient;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun abortUpload (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun close ()V
+	public final fun getProgress ()Lkotlinx/coroutines/flow/Flow;
+	public final fun sha256 (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun upload (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun upload$default (Ltv/livo/sdk/MultipartUploadController;Ljava/util/List;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/MultipartUploadController$Companion {
+	public final fun decodeEtag (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/Posters {
+	public static final field INSTANCE Ltv/livo/sdk/Posters;
+	public final fun captionsVttUrl (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public final fun isSpriteUrl (Ljava/lang/String;)Z
+	public final fun playbackDir (Ljava/lang/String;)Ljava/lang/String;
+	public final fun posterUrlOrSprite (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/RealtimeEvent {
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;Ljava/lang/Long;)Ltv/livo/sdk/RealtimeEvent;
+	public static synthetic fun copy$default (Ltv/livo/sdk/RealtimeEvent;Ljava/lang/String;Ljava/util/Map;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/RealtimeEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPayload ()Ljava/util/Map;
+	public final fun getTs ()Ljava/lang/Long;
+	public final fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/SessionCookieNames {
+	public static final field INSTANCE Ltv/livo/sdk/SessionCookieNames;
+	public static final field PLAIN Ljava/lang/String;
+	public static final field SECURE Ljava/lang/String;
+	public final fun nameFor (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/StreamDetail {
+	public static final field Companion Ltv/livo/sdk/StreamDetail$Companion;
+	public fun <init> (Ltv/livo/sdk/models/LiveStream;Ljava/lang/String;Ltv/livo/sdk/models/IngestInfo;)V
+	public synthetic fun <init> (Ltv/livo/sdk/models/LiveStream;Ljava/lang/String;Ltv/livo/sdk/models/IngestInfo;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltv/livo/sdk/models/LiveStream;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltv/livo/sdk/models/IngestInfo;
+	public final fun copy (Ltv/livo/sdk/models/LiveStream;Ljava/lang/String;Ltv/livo/sdk/models/IngestInfo;)Ltv/livo/sdk/StreamDetail;
+	public static synthetic fun copy$default (Ltv/livo/sdk/StreamDetail;Ltv/livo/sdk/models/LiveStream;Ljava/lang/String;Ltv/livo/sdk/models/IngestInfo;ILjava/lang/Object;)Ltv/livo/sdk/StreamDetail;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIngest ()Ltv/livo/sdk/models/IngestInfo;
+	public final fun getPlaybackUrl ()Ljava/lang/String;
+	public final fun getStream ()Ltv/livo/sdk/models/LiveStream;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/StreamDetail$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/StreamDetail$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/StreamDetail;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/StreamDetail;)V
+}
+
+public final class tv/livo/sdk/StreamDetail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/StudioControlClient {
+	public final fun answer (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getToken ()Ljava/lang/String;
+	public final fun livestream (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun publish (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun refresh (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun state (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun stop (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/StudioLivestreamResult {
+	public static final field Companion Ltv/livo/sdk/StudioLivestreamResult$Companion;
+	public fun <init> ()V
+	public fun <init> (ZLtv/livo/sdk/models/StudioLivestreamEgress;)V
+	public synthetic fun <init> (ZLtv/livo/sdk/models/StudioLivestreamEgress;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ltv/livo/sdk/models/StudioLivestreamEgress;
+	public final fun copy (ZLtv/livo/sdk/models/StudioLivestreamEgress;)Ltv/livo/sdk/StudioLivestreamResult;
+	public static synthetic fun copy$default (Ltv/livo/sdk/StudioLivestreamResult;ZLtv/livo/sdk/models/StudioLivestreamEgress;ILjava/lang/Object;)Ltv/livo/sdk/StudioLivestreamResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEgress ()Ltv/livo/sdk/models/StudioLivestreamEgress;
+	public final fun getOk ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/StudioLivestreamResult$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/StudioLivestreamResult$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/StudioLivestreamResult;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/StudioLivestreamResult;)V
+}
+
+public final class tv/livo/sdk/StudioLivestreamResult$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tv/livo/sdk/UploadSource {
+	public abstract fun getSize ()J
+	public abstract fun open (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class tv/livo/sdk/models/ApiKey {
+	public static final field Companion Ltv/livo/sdk/models/ApiKey$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltv/livo/sdk/models/ApiKey;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/ApiKey;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/ApiKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Ljava/lang/Long;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLastUsedAt ()Ljava/lang/Long;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRevokedAt ()Ljava/lang/Long;
+	public final fun getScopes ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/ApiKey$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/ApiKey$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/ApiKey;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/ApiKey;)V
+}
+
+public final class tv/livo/sdk/models/ApiKey$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/ApiKeyScope : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/ApiKeyScope$Companion;
+	public static final field ORGANIZATION_WRITE Ltv/livo/sdk/models/ApiKeyScope;
+	public static final field READ Ltv/livo/sdk/models/ApiKeyScope;
+	public static final field STREAMS_WRITE Ltv/livo/sdk/models/ApiKeyScope;
+	public static final field VOD_WRITE Ltv/livo/sdk/models/ApiKeyScope;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/ApiKeyScope;
+	public static fun values ()[Ltv/livo/sdk/models/ApiKeyScope;
+}
+
+public final class tv/livo/sdk/models/ApiKeyScope$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CaptionCue {
+	public static final field Companion Ltv/livo/sdk/models/CaptionCue$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Ltv/livo/sdk/models/CaptionCue;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CaptionCue;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/CaptionCue;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReceivedAt ()Ljava/lang/Long;
+	public final fun getSpeaker ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CaptionCue$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CaptionCue$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CaptionCue;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CaptionCue;)V
+}
+
+public final class tv/livo/sdk/models/CaptionCue$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CommunityAnswer {
+	public static final field Companion Ltv/livo/sdk/models/CommunityAnswer$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Ltv/livo/sdk/models/CommunityAnswer;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CommunityAnswer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/CommunityAnswer;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnsweredAt ()Ljava/lang/Long;
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getPicture ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CommunityAnswer$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CommunityAnswer$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CommunityAnswer;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CommunityAnswer;)V
+}
+
+public final class tv/livo/sdk/models/CommunityAnswer$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CommunityIdentity {
+	public static final field Companion Ltv/livo/sdk/models/CommunityIdentity$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/CommunityIdentity;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CommunityIdentity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/CommunityIdentity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getGuestId ()Ljava/lang/String;
+	public final fun getPicture ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CommunityIdentity$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CommunityIdentity$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CommunityIdentity;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CommunityIdentity;)V
+}
+
+public final class tv/livo/sdk/models/CommunityIdentity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CommunityItem {
+	public static final field Companion Ltv/livo/sdk/models/CommunityItem$Companion;
+	public fun <init> (Ljava/lang/String;Ltv/livo/sdk/models/CommunityType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltv/livo/sdk/models/CommunityAnswer;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltv/livo/sdk/models/CommunityType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltv/livo/sdk/models/CommunityAnswer;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Ltv/livo/sdk/models/CommunityAnswer;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/Long;
+	public final fun component16 ()Ljava/util/List;
+	public final fun component2 ()Ltv/livo/sdk/models/CommunityType;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()I
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ltv/livo/sdk/models/CommunityType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltv/livo/sdk/models/CommunityAnswer;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;)Ltv/livo/sdk/models/CommunityItem;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CommunityItem;Ljava/lang/String;Ltv/livo/sdk/models/CommunityType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltv/livo/sdk/models/CommunityAnswer;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;ILjava/lang/Object;)Ltv/livo/sdk/models/CommunityItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnswer ()Ltv/livo/sdk/models/CommunityAnswer;
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getCreatedAt ()Ljava/lang/Long;
+	public final fun getDismissedAt ()Ljava/lang/Long;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getGuestId ()Ljava/lang/String;
+	public final fun getHiddenAt ()Ljava/lang/Long;
+	public final fun getHighlightedAt ()Ljava/lang/Long;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getParentId ()Ljava/lang/String;
+	public final fun getPicture ()Ljava/lang/String;
+	public final fun getPinnedAt ()Ljava/lang/Long;
+	public final fun getReplies ()Ljava/util/List;
+	public final fun getType ()Ltv/livo/sdk/models/CommunityType;
+	public final fun getUpdatedAt ()Ljava/lang/Long;
+	public final fun getUpvoteCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CommunityItem$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CommunityItem$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CommunityItem;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CommunityItem;)V
+}
+
+public final class tv/livo/sdk/models/CommunityItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CommunityType : java/lang/Enum {
+	public static final field COMMENT Ltv/livo/sdk/models/CommunityType;
+	public static final field Companion Ltv/livo/sdk/models/CommunityType$Companion;
+	public static final field QUESTION Ltv/livo/sdk/models/CommunityType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/CommunityType;
+	public static fun values ()[Ltv/livo/sdk/models/CommunityType;
+}
+
+public final class tv/livo/sdk/models/CommunityType$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CompletedPart {
+	public static final field Companion Ltv/livo/sdk/models/CompletedPart$Companion;
+	public fun <init> (ILjava/lang/String;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;)Ltv/livo/sdk/models/CompletedPart;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CompletedPart;ILjava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/CompletedPart;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEtag ()Ljava/lang/String;
+	public final fun getPartNumber ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CompletedPart$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CompletedPart$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CompletedPart;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CompletedPart;)V
+}
+
+public final class tv/livo/sdk/models/CompletedPart$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CreateVodResponse {
+	public static final field Companion Ltv/livo/sdk/models/CreateVodResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Ltv/livo/sdk/models/CreateVodResponse;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CreateVodResponse;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Ltv/livo/sdk/models/CreateVodResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPartSize ()J
+	public final fun getUploadId ()Ljava/lang/String;
+	public final fun getVodId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CreateVodResponse$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CreateVodResponse$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CreateVodResponse;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CreateVodResponse;)V
+}
+
+public final class tv/livo/sdk/models/CreateVodResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CreatedApiKey {
+	public static final field Companion Ltv/livo/sdk/models/CreatedApiKey$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/CreatedApiKey;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CreatedApiKey;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/CreatedApiKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPlaintext ()Ljava/lang/String;
+	public final fun getSecret ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CreatedApiKey$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/CreatedApiKey$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CreatedApiKey;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CreatedApiKey;)V
+}
+
+public final class tv/livo/sdk/models/CreatedApiKey$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CursorPage {
+	public static final field Companion Ltv/livo/sdk/models/CursorPage$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltv/livo/sdk/models/CursorPage;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/CursorPage;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/CursorPage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getNextCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/CursorPage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public fun <init> (Lkotlinx/serialization/KSerializer;)V
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/CursorPage;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/CursorPage;)V
+	public final fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CursorPage$Companion {
+	public final fun serializer (Lkotlinx/serialization/KSerializer;)Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/Curtain {
+	public static final field Companion Ltv/livo/sdk/models/Curtain$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/CurtainKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/CurtainKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component11 ()Z
+	public final fun component12 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component13 ()Ljava/lang/String;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ltv/livo/sdk/models/CurtainKind;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/CurtainKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Ltv/livo/sdk/models/Curtain;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/Curtain;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/CurtainKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/Curtain;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfig ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getCreatedAt ()Ljava/lang/Long;
+	public final fun getDeletedAt ()Ljava/lang/Long;
+	public final fun getDisplayTitle ()Ljava/lang/String;
+	public final fun getDisplayUrl ()Ljava/lang/String;
+	public final fun getEnvBasePath ()Ljava/lang/String;
+	public final fun getHideBranding ()Z
+	public final fun getHideStatus ()Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Ltv/livo/sdk/models/CurtainKind;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getOwnerType ()Ljava/lang/String;
+	public final fun getPosterUrl ()Ljava/lang/String;
+	public final fun getPublicUrl ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isDefault ()Z
+	public final fun isPlatform ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/Curtain$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/Curtain$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/Curtain;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/Curtain;)V
+}
+
+public final class tv/livo/sdk/models/Curtain$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/CurtainKind : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/CurtainKind$Companion;
+	public static final field IMAGE Ltv/livo/sdk/models/CurtainKind;
+	public static final field SHADER Ltv/livo/sdk/models/CurtainKind;
+	public static final field VIDEO Ltv/livo/sdk/models/CurtainKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/CurtainKind;
+	public static fun values ()[Ltv/livo/sdk/models/CurtainKind;
+}
+
+public final class tv/livo/sdk/models/CurtainKind$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/EnvironmentSummary {
+	public static final field Companion Ltv/livo/sdk/models/EnvironmentSummary$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/EnvironmentSummary;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/EnvironmentSummary;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/EnvironmentSummary;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccessPolicy ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getSlug ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isProduction ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/EnvironmentSummary$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/EnvironmentSummary$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/EnvironmentSummary;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/EnvironmentSummary;)V
+}
+
+public final class tv/livo/sdk/models/EnvironmentSummary$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/IngestInfo {
+	public static final field Companion Ltv/livo/sdk/models/IngestInfo$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/IngestInfo;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/IngestInfo;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/IngestInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHost ()Ljava/lang/String;
+	public final fun getPort ()Ljava/lang/Integer;
+	public final fun getRtmpUrl ()Ljava/lang/String;
+	public final fun getStreamKey ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public final fun getWhipUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/IngestInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/IngestInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/IngestInfo;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/IngestInfo;)V
+}
+
+public final class tv/livo/sdk/models/IngestInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/JwtClaims {
+	public static final field Companion Ltv/livo/sdk/models/JwtClaims$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Ltv/livo/sdk/models/JwtClaims;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/JwtClaims;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/JwtClaims;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getEnvironmentId ()Ljava/lang/String;
+	public final fun getEnvironmentSlug ()Ljava/lang/String;
+	public final fun getExp ()Ljava/lang/Long;
+	public final fun getImpersonatedBy ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getOrganizationRole ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun getRole ()Ljava/lang/String;
+	public final fun getSub ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/JwtClaims$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/JwtClaims$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/JwtClaims;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/JwtClaims;)V
+}
+
+public final class tv/livo/sdk/models/JwtClaims$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/LegalDocument {
+	public static final field Companion Ltv/livo/sdk/models/LegalDocument$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/LegalDocument;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/LegalDocument;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/LegalDocument;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAcceptedVersion ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/LegalDocument$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/LegalDocument$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/LegalDocument;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/LegalDocument;)V
+}
+
+public final class tv/livo/sdk/models/LegalDocument$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/LegalStatus {
+	public static final field Companion Ltv/livo/sdk/models/LegalStatus$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltv/livo/sdk/models/LegalDocument;Ltv/livo/sdk/models/LegalDocument;Z)V
+	public synthetic fun <init> (Ltv/livo/sdk/models/LegalDocument;Ltv/livo/sdk/models/LegalDocument;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltv/livo/sdk/models/LegalDocument;
+	public final fun component2 ()Ltv/livo/sdk/models/LegalDocument;
+	public final fun component3 ()Z
+	public final fun copy (Ltv/livo/sdk/models/LegalDocument;Ltv/livo/sdk/models/LegalDocument;Z)Ltv/livo/sdk/models/LegalStatus;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/LegalStatus;Ltv/livo/sdk/models/LegalDocument;Ltv/livo/sdk/models/LegalDocument;ZILjava/lang/Object;)Ltv/livo/sdk/models/LegalStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNeedsAcceptance ()Z
+	public final fun getPrivacy ()Ltv/livo/sdk/models/LegalDocument;
+	public final fun getTerms ()Ltv/livo/sdk/models/LegalDocument;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/LegalStatus$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/LegalStatus$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/LegalStatus;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/LegalStatus;)V
+}
+
+public final class tv/livo/sdk/models/LegalStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/LicensePreview {
+	public static final field Companion Ltv/livo/sdk/models/LicensePreview$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Integer;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Long;)Ltv/livo/sdk/models/LicensePreview;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/LicensePreview;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/LicensePreview;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpiresAt ()Ljava/lang/Long;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPlan ()Ljava/lang/String;
+	public final fun getSeats ()Ljava/lang/Integer;
+	public final fun getValid ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public final fun isUsable ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/LicensePreview$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/LicensePreview$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/LicensePreview;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/LicensePreview;)V
+}
+
+public final class tv/livo/sdk/models/LicensePreview$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/LiveStream {
+	public static final field Companion Ltv/livo/sdk/models/LiveStream$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZLtv/livo/sdk/models/StreamCommunityFlags;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZLtv/livo/sdk/models/StreamCommunityFlags;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ltv/livo/sdk/models/StreamMode;
+	public final fun component12 ()Ltv/livo/sdk/models/StreamSource;
+	public final fun component13 ()Ltv/livo/sdk/models/MediaKind;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/Integer;
+	public final fun component16 ()Ljava/lang/String;
+	public final fun component17 ()Ljava/lang/Long;
+	public final fun component18 ()Ljava/lang/Long;
+	public final fun component19 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component20 ()Ljava/lang/Long;
+	public final fun component21 ()Ljava/lang/Long;
+	public final fun component22 ()Ljava/lang/Long;
+	public final fun component23 ()Ljava/lang/String;
+	public final fun component24 ()Ljava/lang/String;
+	public final fun component25 ()Ljava/lang/String;
+	public final fun component26 ()Ljava/lang/Long;
+	public final fun component27 ()Z
+	public final fun component28 ()Ltv/livo/sdk/models/StreamCommunityFlags;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ltv/livo/sdk/models/StreamStatus;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/Integer;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZLtv/livo/sdk/models/StreamCommunityFlags;)Ltv/livo/sdk/models/LiveStream;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/LiveStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ltv/livo/sdk/models/StreamSource;Ltv/livo/sdk/models/MediaKind;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZLtv/livo/sdk/models/StreamCommunityFlags;ILjava/lang/Object;)Ltv/livo/sdk/models/LiveStream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaptionsEnabled ()Z
+	public final fun getCommunity ()Ltv/livo/sdk/models/StreamCommunityFlags;
+	public final fun getCreatedAt ()Ljava/lang/Long;
+	public final fun getCurtainId ()Ljava/lang/String;
+	public final fun getDeletedAt ()Ljava/lang/Long;
+	public final fun getDurationSeconds ()Ljava/lang/Integer;
+	public final fun getEffectiveKind ()Ltv/livo/sdk/models/MediaKind;
+	public final fun getEffectiveSource ()Ltv/livo/sdk/models/StreamSource;
+	public final fun getEncoderLostAt ()Ljava/lang/Long;
+	public final fun getEndedAt ()Ljava/lang/Long;
+	public final fun getEnvironmentSlug ()Ljava/lang/String;
+	public final fun getErrorMessage ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getIngestHost ()Ljava/lang/String;
+	public final fun getIngestPort ()Ljava/lang/Integer;
+	public final fun getIngestTimeoutAt ()Ljava/lang/Long;
+	public final fun getKind ()Ltv/livo/sdk/models/MediaKind;
+	public final fun getListPosterUrl ()Ljava/lang/String;
+	public final fun getMode ()Ltv/livo/sdk/models/StreamMode;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getPlaybackUrl ()Ljava/lang/String;
+	public final fun getPlayerPosterUrl ()Ljava/lang/String;
+	public final fun getPosterUrl ()Ljava/lang/String;
+	public final fun getSource ()Ltv/livo/sdk/models/StreamSource;
+	public final fun getStartedAt ()Ljava/lang/Long;
+	public final fun getStartsAt ()Ljava/lang/Long;
+	public final fun getStatus ()Ltv/livo/sdk/models/StreamStatus;
+	public final fun getStreamKey ()Ljava/lang/String;
+	public final fun getStudioGuestToken ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Ljava/lang/Long;
+	public final fun getWhipUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/LiveStream$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/LiveStream$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/LiveStream;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/LiveStream;)V
+}
+
+public final class tv/livo/sdk/models/LiveStream$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/ManagedBy {
+	public static final field Companion Ltv/livo/sdk/models/ManagedBy$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Ltv/livo/sdk/models/ManagedBy;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/ManagedBy;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/ManagedBy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExternalRef ()Ljava/lang/String;
+	public final fun getPartnerId ()Ljava/lang/String;
+	public final fun getPartnerName ()Ljava/lang/String;
+	public final fun getProvisionedAt ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/ManagedBy$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/ManagedBy$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/ManagedBy;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/ManagedBy;)V
+}
+
+public final class tv/livo/sdk/models/ManagedBy$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/MediaItem {
+	public static final field Companion Ltv/livo/sdk/models/MediaItem$Companion;
+	public fun <init> (Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/Vod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/Vod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltv/livo/sdk/models/MediaKind;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltv/livo/sdk/models/LiveStream;
+	public final fun component4 ()Ltv/livo/sdk/models/Vod;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/Vod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/MediaItem;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/MediaItem;Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ltv/livo/sdk/models/LiveStream;Ltv/livo/sdk/models/Vod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/MediaItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Ljava/lang/Long;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Ltv/livo/sdk/models/MediaKind;
+	public final fun getPlaybackUrl ()Ljava/lang/String;
+	public final fun getPosterUrl ()Ljava/lang/String;
+	public final fun getResolvedId ()Ljava/lang/String;
+	public final fun getResolvedTitle ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getStream ()Ltv/livo/sdk/models/LiveStream;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getVod ()Ltv/livo/sdk/models/Vod;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/MediaItem$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/MediaItem$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/MediaItem;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/MediaItem;)V
+}
+
+public final class tv/livo/sdk/models/MediaItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/MediaKind : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/MediaKind$Companion;
+	public static final field STREAM Ltv/livo/sdk/models/MediaKind;
+	public static final field VOD Ltv/livo/sdk/models/MediaKind;
+	public static final field WEBINAR Ltv/livo/sdk/models/MediaKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/MediaKind;
+	public static fun values ()[Ltv/livo/sdk/models/MediaKind;
+}
+
+public final class tv/livo/sdk/models/MediaKind$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/MetricPeriod : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/MetricPeriod$Companion;
+	public static final field DAY Ltv/livo/sdk/models/MetricPeriod;
+	public static final field MONTH Ltv/livo/sdk/models/MetricPeriod;
+	public static final field WEEK Ltv/livo/sdk/models/MetricPeriod;
+	public static final field YEAR Ltv/livo/sdk/models/MetricPeriod;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/MetricPeriod;
+	public static fun values ()[Ltv/livo/sdk/models/MetricPeriod;
+}
+
+public final class tv/livo/sdk/models/MetricPeriod$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/MetricRollup {
+	public static final field Companion Ltv/livo/sdk/models/MetricRollup$Companion;
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()D
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/Long;)Ltv/livo/sdk/models/MetricRollup;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/MetricRollup;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DLjava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/MetricRollup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()Ljava/lang/Long;
+	public final fun getEnvironmentSlug ()Ljava/lang/String;
+	public final fun getMetric ()Ljava/lang/String;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getPeriodStart ()Ljava/lang/Long;
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/MetricRollup$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/MetricRollup$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/MetricRollup;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/MetricRollup;)V
+}
+
+public final class tv/livo/sdk/models/MetricRollup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/MetricValue {
+	public static final field Companion Ltv/livo/sdk/models/MetricValue$Companion;
+	public fun <init> ()V
+	public fun <init> (DJ)V
+	public synthetic fun <init> (DJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()D
+	public final fun component2 ()J
+	public final fun copy (DJ)Ltv/livo/sdk/models/MetricValue;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/MetricValue;DJILjava/lang/Object;)Ltv/livo/sdk/models/MetricValue;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()J
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/MetricValue$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/MetricValue$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/MetricValue;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/MetricValue;)V
+}
+
+public final class tv/livo/sdk/models/MetricValue$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/MetricsHighlights {
+	public static final field Companion Ltv/livo/sdk/models/MetricsHighlights$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun card (Ljava/lang/String;Ljava/lang/String;)D
+	public static synthetic fun card$default (Ltv/livo/sdk/models/MetricsHighlights;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)D
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/Double;
+	public final fun component11 ()Ljava/lang/Double;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun component5 ()Ljava/lang/Double;
+	public final fun component6 ()Ljava/lang/Double;
+	public final fun component7 ()Ljava/lang/Double;
+	public final fun component8 ()Ljava/lang/Double;
+	public final fun component9 ()Ljava/lang/Double;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)Ltv/livo/sdk/models/MetricsHighlights;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/MetricsHighlights;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/Map;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;ILjava/lang/Object;)Ltv/livo/sdk/models/MetricsHighlights;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFrom ()Ljava/lang/Long;
+	public final fun getLiveNow ()Ljava/lang/Double;
+	public final fun getMetrics ()Ljava/util/Map;
+	public final fun getPeriod ()Ljava/lang/String;
+	public final fun getSpendUsd ()Ljava/lang/Double;
+	public final fun getStorageBytes ()Ljava/lang/Double;
+	public final fun getStreamsThisMonth ()Ljava/lang/Double;
+	public final fun getTo ()Ljava/lang/Long;
+	public final fun getViews ()Ljava/lang/Double;
+	public final fun getVodsThisMonth ()Ljava/lang/Double;
+	public final fun getWatchHours ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/MetricsHighlights$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/MetricsHighlights$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/MetricsHighlights;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/MetricsHighlights;)V
+}
+
+public final class tv/livo/sdk/models/MetricsHighlights$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/ModelsKt {
+	public static final field PART_SIZE_BYTES J
+}
+
+public final class tv/livo/sdk/models/Notification {
+	public static final field Companion Ltv/livo/sdk/models/Notification$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ltv/livo/sdk/models/Notification;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/Notification;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ltv/livo/sdk/models/Notification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLink ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getRead ()Z
+	public final fun getReadAt ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
+	public final fun getUserId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/Notification$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/Notification$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/Notification;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/Notification;)V
+}
+
+public final class tv/livo/sdk/models/Notification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/NotificationsPage {
+	public static final field Companion Ltv/livo/sdk/models/NotificationsPage$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;ILjava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;ILjava/lang/String;)Ltv/livo/sdk/models/NotificationsPage;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/NotificationsPage;Ljava/util/List;ILjava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/NotificationsPage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getNextCursor ()Ljava/lang/String;
+	public final fun getUnreadCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/NotificationsPage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/NotificationsPage$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/NotificationsPage;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/NotificationsPage;)V
+}
+
+public final class tv/livo/sdk/models/NotificationsPage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/OrganizationInvitation {
+	public static final field Companion Ltv/livo/sdk/models/OrganizationInvitation$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/Long;)Ltv/livo/sdk/models/OrganizationInvitation;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/OrganizationInvitation;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/OrganizationInvitation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getExpiresAt ()Ljava/lang/Long;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRole ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun getStatus ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/OrganizationInvitation$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/OrganizationInvitation$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/OrganizationInvitation;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/OrganizationInvitation;)V
+}
+
+public final class tv/livo/sdk/models/OrganizationInvitation$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/OrganizationMember {
+	public static final field Companion Ltv/livo/sdk/models/OrganizationMember$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;)Ltv/livo/sdk/models/OrganizationMember;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/OrganizationMember;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/OrganizationMember;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getImage ()Ljava/lang/String;
+	public final fun getMemberUserId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRole ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun getUserId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/OrganizationMember$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/OrganizationMember$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/OrganizationMember;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/OrganizationMember;)V
+}
+
+public final class tv/livo/sdk/models/OrganizationMember$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/OrganizationRole : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/OrganizationRole$Companion;
+	public static final field MANAGER Ltv/livo/sdk/models/OrganizationRole;
+	public static final field MEMBER Ltv/livo/sdk/models/OrganizationRole;
+	public static final field OWNER Ltv/livo/sdk/models/OrganizationRole;
+	public final fun getCanAdminister ()Z
+	public final fun getCanWriteContent ()Z
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun isOwner ()Z
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/OrganizationRole;
+	public static fun values ()[Ltv/livo/sdk/models/OrganizationRole;
+}
+
+public final class tv/livo/sdk/models/OrganizationRole$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/OrganizationSettings {
+	public static final field Companion Ltv/livo/sdk/models/OrganizationSettings$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/ManagedBy;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/ManagedBy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltv/livo/sdk/models/ManagedBy;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/ManagedBy;)Ltv/livo/sdk/models/OrganizationSettings;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/OrganizationSettings;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/ManagedBy;ILjava/lang/Object;)Ltv/livo/sdk/models/OrganizationSettings;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDefaultCurtainId ()Ljava/lang/String;
+	public final fun getManagedBy ()Ltv/livo/sdk/models/ManagedBy;
+	public final fun getWebhookUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/OrganizationSettings$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/OrganizationSettings$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/OrganizationSettings;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/OrganizationSettings;)V
+}
+
+public final class tv/livo/sdk/models/OrganizationSettings$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/OrganizationSummary {
+	public static final field Companion Ltv/livo/sdk/models/OrganizationSummary$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/OrganizationSummary;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/OrganizationSummary;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/OrganizationRole;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/OrganizationSummary;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getImage ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRole ()Ltv/livo/sdk/models/OrganizationRole;
+	public final fun getStatus ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/OrganizationSummary$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/OrganizationSummary$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/OrganizationSummary;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/OrganizationSummary;)V
+}
+
+public final class tv/livo/sdk/models/OrganizationSummary$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/PasskeyRecord {
+	public static final field Companion Ltv/livo/sdk/models/PasskeyRecord$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/PasskeyRecord;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/PasskeyRecord;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/PasskeyRecord;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Ljava/lang/String;
+	public final fun getDeviceType ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/PasskeyRecord$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/PasskeyRecord$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/PasskeyRecord;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/PasskeyRecord;)V
+}
+
+public final class tv/livo/sdk/models/PasskeyRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/PlaybackBeaconEvent {
+	public static final field Companion Ltv/livo/sdk/models/PlaybackBeaconEvent$Companion;
+	public fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Double;
+	public final fun component6 ()Ljava/lang/Double;
+	public final fun component7 ()Ljava/lang/Double;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/PlaybackBeaconEvent;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/PlaybackBeaconEvent;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/PlaybackBeaconEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurrentTime ()Ljava/lang/Double;
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getLocale ()Ljava/lang/String;
+	public final fun getQuality ()Ljava/lang/String;
+	public final fun getRebufferSeconds ()Ljava/lang/Double;
+	public final fun getStreamId ()Ljava/lang/String;
+	public final fun getSurface ()Ljava/lang/String;
+	public final fun getTs ()J
+	public final fun getType ()Ljava/lang/String;
+	public final fun getVodId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/PlaybackBeaconEvent$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/PlaybackBeaconEvent$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/PlaybackBeaconEvent;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/PlaybackBeaconEvent;)V
+}
+
+public final class tv/livo/sdk/models/PlaybackBeaconEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/PublicOrganization {
+	public static final field Companion Ltv/livo/sdk/models/PublicOrganization$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/PublicOrganization;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/PublicOrganization;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/PublicOrganization;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getImage ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/PublicOrganization$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/PublicOrganization$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/PublicOrganization;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/PublicOrganization;)V
+}
+
+public final class tv/livo/sdk/models/PublicOrganization$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/PublicStream {
+	public static final field Companion Ltv/livo/sdk/models/PublicStream$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/Long;Ljava/lang/String;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Boolean;Ltv/livo/sdk/models/StreamCommunityFlags;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/Long;Ljava/lang/String;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Boolean;Ltv/livo/sdk/models/StreamCommunityFlags;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ltv/livo/sdk/models/PublicOrganization;
+	public final fun component11 ()Ljava/lang/Integer;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/Boolean;
+	public final fun component14 ()Ltv/livo/sdk/models/StreamCommunityFlags;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ltv/livo/sdk/models/StreamMode;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Integer;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ltv/livo/sdk/models/ResolvedCurtain;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/Long;Ljava/lang/String;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Boolean;Ltv/livo/sdk/models/StreamCommunityFlags;)Ltv/livo/sdk/models/PublicStream;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/PublicStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StreamMode;Ljava/lang/Long;Ljava/lang/Integer;Ljava/lang/Long;Ljava/lang/String;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Boolean;Ltv/livo/sdk/models/StreamCommunityFlags;ILjava/lang/Object;)Ltv/livo/sdk/models/PublicStream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaptionsEnabled ()Ljava/lang/Boolean;
+	public final fun getCaptionsUrl ()Ljava/lang/String;
+	public final fun getCommunity ()Ltv/livo/sdk/models/StreamCommunityFlags;
+	public final fun getCurtain ()Ltv/livo/sdk/models/ResolvedCurtain;
+	public final fun getDurationSeconds ()Ljava/lang/Integer;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMode ()Ltv/livo/sdk/models/StreamMode;
+	public final fun getOrganization ()Ltv/livo/sdk/models/PublicOrganization;
+	public final fun getPlaybackUrl ()Ljava/lang/String;
+	public final fun getStartedAt ()Ljava/lang/Long;
+	public final fun getStartsAt ()Ljava/lang/Long;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getViewers ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/PublicStream$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/PublicStream$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/PublicStream;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/PublicStream;)V
+}
+
+public final class tv/livo/sdk/models/PublicStream$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/PublicVod {
+	public static final field Companion Ltv/livo/sdk/models/PublicVod$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;ZLtv/livo/sdk/models/VodCommunityFlags;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;ZLtv/livo/sdk/models/VodCommunityFlags;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component11 ()Ltv/livo/sdk/models/VodCommunityFlags;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/Integer;
+	public final fun component8 ()Ltv/livo/sdk/models/ResolvedCurtain;
+	public final fun component9 ()Ltv/livo/sdk/models/PublicOrganization;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;ZLtv/livo/sdk/models/VodCommunityFlags;)Ltv/livo/sdk/models/PublicVod;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/PublicVod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ltv/livo/sdk/models/ResolvedCurtain;Ltv/livo/sdk/models/PublicOrganization;ZLtv/livo/sdk/models/VodCommunityFlags;ILjava/lang/Object;)Ltv/livo/sdk/models/PublicVod;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaptionsEnabled ()Z
+	public final fun getCommunity ()Ltv/livo/sdk/models/VodCommunityFlags;
+	public final fun getCurtain ()Ltv/livo/sdk/models/ResolvedCurtain;
+	public final fun getDurationSeconds ()Ljava/lang/Integer;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getOrganization ()Ltv/livo/sdk/models/PublicOrganization;
+	public final fun getPlaybackUrl ()Ljava/lang/String;
+	public final fun getPosterUrl ()Ljava/lang/String;
+	public final fun getReleaseAt ()Ljava/lang/Long;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/PublicVod$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/PublicVod$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/PublicVod;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/PublicVod;)V
+}
+
+public final class tv/livo/sdk/models/PublicVod$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/ResolvedCurtain {
+	public static final field Companion Ltv/livo/sdk/models/ResolvedCurtain$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;ZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Ltv/livo/sdk/models/ResolvedCurtain;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/ResolvedCurtain;Ljava/lang/String;Ljava/lang/String;ZZLkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/ResolvedCurtain;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfig ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getEnvBasePath ()Ljava/lang/String;
+	public final fun getHideBranding ()Z
+	public final fun getHideStatus ()Z
+	public final fun getKind ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/ResolvedCurtain$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/ResolvedCurtain$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/ResolvedCurtain;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/ResolvedCurtain;)V
+}
+
+public final class tv/livo/sdk/models/ResolvedCurtain$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/SessionStatus {
+	public static final field Companion Ltv/livo/sdk/models/SessionStatus$Companion;
+	public fun <init> (Ltv/livo/sdk/models/SessionUser;ZLjava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/LegalStatus;Lkotlinx/serialization/json/JsonElement;)V
+	public synthetic fun <init> (Ltv/livo/sdk/models/SessionUser;ZLjava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/LegalStatus;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltv/livo/sdk/models/SessionUser;
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ltv/livo/sdk/models/LegalStatus;
+	public final fun component9 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy (Ltv/livo/sdk/models/SessionUser;ZLjava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/LegalStatus;Lkotlinx/serialization/json/JsonElement;)Ltv/livo/sdk/models/SessionStatus;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/SessionStatus;Ltv/livo/sdk/models/SessionUser;ZLjava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/LegalStatus;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Ltv/livo/sdk/models/SessionStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveEnvironmentId ()Ljava/lang/String;
+	public final fun getActiveOrganizationId ()Ljava/lang/String;
+	public final fun getEnvironments ()Ljava/util/List;
+	public final fun getImpersonatedBy ()Ljava/lang/String;
+	public final fun getLegal ()Ltv/livo/sdk/models/LegalStatus;
+	public final fun getOrganizations ()Ljava/util/List;
+	public final fun getProfileConfirmed ()Z
+	public final fun getSession ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getUser ()Ltv/livo/sdk/models/SessionUser;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/SessionStatus$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/SessionStatus$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/SessionStatus;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/SessionStatus;)V
+}
+
+public final class tv/livo/sdk/models/SessionStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/SessionUser {
+	public static final field Companion Ltv/livo/sdk/models/SessionUser$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/SessionUser;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/SessionUser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/SessionUser;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getImage ()Ljava/lang/String;
+	public final fun getLocale ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRole ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/SessionUser$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/SessionUser$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/SessionUser;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/SessionUser;)V
+}
+
+public final class tv/livo/sdk/models/SessionUser$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StreamCommunityFlags {
+	public static final field Companion Ltv/livo/sdk/models/StreamCommunityFlags$Companion;
+	public fun <init> ()V
+	public fun <init> (ZZLjava/lang/Boolean;ZLjava/lang/Boolean;)V
+	public synthetic fun <init> (ZZLjava/lang/Boolean;ZLjava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Z
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun copy (ZZLjava/lang/Boolean;ZLjava/lang/Boolean;)Ltv/livo/sdk/models/StreamCommunityFlags;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StreamCommunityFlags;ZZLjava/lang/Boolean;ZLjava/lang/Boolean;ILjava/lang/Object;)Ltv/livo/sdk/models/StreamCommunityFlags;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCommentsAfterEnd ()Z
+	public final fun getCommentsEnabled ()Z
+	public final fun getCommentsOpen ()Ljava/lang/Boolean;
+	public final fun getQaEnabled ()Z
+	public final fun getQaOpen ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StreamCommunityFlags$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StreamCommunityFlags$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StreamCommunityFlags;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StreamCommunityFlags;)V
+}
+
+public final class tv/livo/sdk/models/StreamCommunityFlags$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StreamMode : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/StreamMode$Companion;
+	public static final field INSTANT Ltv/livo/sdk/models/StreamMode;
+	public static final field SCHEDULED Ltv/livo/sdk/models/StreamMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/StreamMode;
+	public static fun values ()[Ltv/livo/sdk/models/StreamMode;
+}
+
+public final class tv/livo/sdk/models/StreamMode$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StreamSource : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/StreamSource$Companion;
+	public static final field RTMP Ltv/livo/sdk/models/StreamSource;
+	public static final field STUDIO Ltv/livo/sdk/models/StreamSource;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/StreamSource;
+	public static fun values ()[Ltv/livo/sdk/models/StreamSource;
+}
+
+public final class tv/livo/sdk/models/StreamSource$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StreamStatus : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/StreamStatus$Companion;
+	public static final field ENDED Ltv/livo/sdk/models/StreamStatus;
+	public static final field ERROR Ltv/livo/sdk/models/StreamStatus;
+	public static final field IDLE Ltv/livo/sdk/models/StreamStatus;
+	public static final field INGEST_READY Ltv/livo/sdk/models/StreamStatus;
+	public static final field PREVIEW Ltv/livo/sdk/models/StreamStatus;
+	public static final field PUBLIC Ltv/livo/sdk/models/StreamStatus;
+	public static final field SCHEDULED Ltv/livo/sdk/models/StreamStatus;
+	public static final field SPAWNING Ltv/livo/sdk/models/StreamStatus;
+	public final fun getCanPublish ()Z
+	public final fun getCanStart ()Z
+	public final fun getCanStop ()Z
+	public final fun getCanTrash ()Z
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getPollIntervalMs ()J
+	public final fun getShowsIngest ()Z
+	public final fun isLive ()Z
+	public final fun isPlayable ()Z
+	public final fun isTerminal ()Z
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/StreamStatus;
+	public static fun values ()[Ltv/livo/sdk/models/StreamStatus;
+}
+
+public final class tv/livo/sdk/models/StreamStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioControlRefresh {
+	public static final field Companion Ltv/livo/sdk/models/StudioControlRefresh$Companion;
+	public fun <init> (Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Ltv/livo/sdk/models/StudioControlRefresh;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioControlRefresh;Ljava/lang/String;JILjava/lang/Object;)Ltv/livo/sdk/models/StudioControlRefresh;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpiresAt ()J
+	public final fun getStudioControlToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StudioControlRefresh$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioControlRefresh$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StudioControlRefresh;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StudioControlRefresh;)V
+}
+
+public final class tv/livo/sdk/models/StudioControlRefresh$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioControlState {
+	public static final field Companion Ltv/livo/sdk/models/StudioControlState$Companion;
+	public fun <init> (Ltv/livo/sdk/models/StudioStreamSummary;)V
+	public final fun component1 ()Ltv/livo/sdk/models/StudioStreamSummary;
+	public final fun copy (Ltv/livo/sdk/models/StudioStreamSummary;)Ltv/livo/sdk/models/StudioControlState;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioControlState;Ltv/livo/sdk/models/StudioStreamSummary;ILjava/lang/Object;)Ltv/livo/sdk/models/StudioControlState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStream ()Ltv/livo/sdk/models/StudioStreamSummary;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StudioControlState$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioControlState$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StudioControlState;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StudioControlState;)V
+}
+
+public final class tv/livo/sdk/models/StudioControlState$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioHostSession {
+	public static final field Companion Ltv/livo/sdk/models/StudioHostSession$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ltv/livo/sdk/models/StudioHostSession;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioHostSession;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Ltv/livo/sdk/models/StudioHostSession;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpiresAt ()J
+	public final fun getGuestToken ()Ljava/lang/String;
+	public final fun getGuestUrl ()Ljava/lang/String;
+	public final fun getHostToken ()Ljava/lang/String;
+	public final fun getHostUrl ()Ljava/lang/String;
+	public final fun getResolvedGuestToken ()Ljava/lang/String;
+	public final fun getResolvedHostToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StudioHostSession$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioHostSession$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StudioHostSession;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StudioHostSession;)V
+}
+
+public final class tv/livo/sdk/models/StudioHostSession$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioJoinStatus {
+	public static final field Companion Ltv/livo/sdk/models/StudioJoinStatus$Companion;
+	public fun <init> (ZLjava/lang/String;)V
+	public synthetic fun <init> (ZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ZLjava/lang/String;)Ltv/livo/sdk/models/StudioJoinStatus;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioJoinStatus;ZLjava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/StudioJoinStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReady ()Z
+	public final fun getStreamStatus ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StudioJoinStatus$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioJoinStatus$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StudioJoinStatus;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StudioJoinStatus;)V
+}
+
+public final class tv/livo/sdk/models/StudioJoinStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tv/livo/sdk/models/StudioJoinStatusResult {
+}
+
+public final class tv/livo/sdk/models/StudioJoinStatusResult$Ended : tv/livo/sdk/models/StudioJoinStatusResult {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioJoinStatusResult$Ended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/models/StudioJoinStatusResult$Status : tv/livo/sdk/models/StudioJoinStatusResult {
+	public fun <init> (Ltv/livo/sdk/models/StudioJoinStatus;)V
+	public final fun component1 ()Ltv/livo/sdk/models/StudioJoinStatus;
+	public final fun copy (Ltv/livo/sdk/models/StudioJoinStatus;)Ltv/livo/sdk/models/StudioJoinStatusResult$Status;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioJoinStatusResult$Status;Ltv/livo/sdk/models/StudioJoinStatus;ILjava/lang/Object;)Ltv/livo/sdk/models/StudioJoinStatusResult$Status;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ltv/livo/sdk/models/StudioJoinStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tv/livo/sdk/models/StudioLivestreamEgress : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/StudioLivestreamEgress$Companion;
+	public static final field LIVE Ltv/livo/sdk/models/StudioLivestreamEgress;
+	public static final field STARTING Ltv/livo/sdk/models/StudioLivestreamEgress;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/StudioLivestreamEgress;
+	public static fun values ()[Ltv/livo/sdk/models/StudioLivestreamEgress;
+}
+
+public final class tv/livo/sdk/models/StudioLivestreamEgress$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioRole : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/StudioRole$Companion;
+	public static final field GUEST Ltv/livo/sdk/models/StudioRole;
+	public static final field MODERATOR Ltv/livo/sdk/models/StudioRole;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/StudioRole;
+	public static fun values ()[Ltv/livo/sdk/models/StudioRole;
+}
+
+public final class tv/livo/sdk/models/StudioRole$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioSession {
+	public static final field Companion Ltv/livo/sdk/models/StudioSession$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StudioRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ltv/livo/sdk/models/StudioStreamSummary;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StudioRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ltv/livo/sdk/models/StudioStreamSummary;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltv/livo/sdk/models/StudioRole;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ltv/livo/sdk/models/StudioStreamSummary;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StudioRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ltv/livo/sdk/models/StudioStreamSummary;)Ltv/livo/sdk/models/StudioSession;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioSession;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/StudioRole;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ltv/livo/sdk/models/StudioStreamSummary;ILjava/lang/Object;)Ltv/livo/sdk/models/StudioSession;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthToken ()Ljava/lang/String;
+	public final fun getExpiresAt ()Ljava/lang/Long;
+	public final fun getGuestUrl ()Ljava/lang/String;
+	public final fun getMeetingId ()Ljava/lang/String;
+	public final fun getRole ()Ltv/livo/sdk/models/StudioRole;
+	public final fun getStream ()Ltv/livo/sdk/models/StudioStreamSummary;
+	public final fun getStudioControlToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StudioSession$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioSession$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StudioSession;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StudioSession;)V
+}
+
+public final class tv/livo/sdk/models/StudioSession$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/StudioStreamSummary {
+	public static final field Companion Ltv/livo/sdk/models/StudioStreamSummary$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;)Ltv/livo/sdk/models/StudioStreamSummary;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/StudioStreamSummary;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;ILjava/lang/Object;)Ltv/livo/sdk/models/StudioStreamSummary;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaptionsEnabled ()Ljava/lang/Boolean;
+	public final fun getEncoderLostAt ()Ljava/lang/Long;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isEnded ()Z
+	public final fun isLive ()Z
+	public final fun isPreview ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/StudioStreamSummary$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/StudioStreamSummary$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/StudioStreamSummary;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/StudioStreamSummary;)V
+}
+
+public final class tv/livo/sdk/models/StudioStreamSummary$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/TrashItem {
+	public static final field Companion Ltv/livo/sdk/models/TrashItem$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltv/livo/sdk/models/TrashItem;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/TrashItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/TrashItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeletedAt ()Ljava/lang/Long;
+	public final fun getExpiresAt ()Ljava/lang/Long;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getTrashedAt ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/TrashItem$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/TrashItem$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/TrashItem;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/TrashItem;)V
+}
+
+public final class tv/livo/sdk/models/TrashItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/UploadConflict {
+	public static final field Companion Ltv/livo/sdk/models/UploadConflict$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ltv/livo/sdk/models/UploadConflict;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/UploadConflict;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/UploadConflict;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getVodId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/UploadConflict$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/UploadConflict$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/UploadConflict;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/UploadConflict;)V
+}
+
+public final class tv/livo/sdk/models/UploadConflict$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/UploadPartUrl {
+	public static final field Companion Ltv/livo/sdk/models/UploadPartUrl$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltv/livo/sdk/models/UploadPartUrl;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/UploadPartUrl;Ljava/lang/String;ILjava/lang/Object;)Ltv/livo/sdk/models/UploadPartUrl;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUploadUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/UploadPartUrl$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/UploadPartUrl$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/UploadPartUrl;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/UploadPartUrl;)V
+}
+
+public final class tv/livo/sdk/models/UploadPartUrl$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/UploadPartsResponse {
+	public static final field Companion Ltv/livo/sdk/models/UploadPartsResponse$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;)Ltv/livo/sdk/models/UploadPartsResponse;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/UploadPartsResponse;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/UploadPartsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getByteSize ()Ljava/lang/Long;
+	public final fun getPartSize ()Ljava/lang/Long;
+	public final fun getParts ()Ljava/util/List;
+	public final fun getSha256 ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/UploadPartsResponse$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/UploadPartsResponse$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/UploadPartsResponse;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/UploadPartsResponse;)V
+}
+
+public final class tv/livo/sdk/models/UploadPartsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/Usage {
+	public static final field Companion Ltv/livo/sdk/models/Usage$Companion;
+	public fun <init> ()V
+	public fun <init> (IIII)V
+	public synthetic fun <init> (IIIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun copy (IIII)Ltv/livo/sdk/models/Usage;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/Usage;IIIIILjava/lang/Object;)Ltv/livo/sdk/models/Usage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMinutesThisMonth ()I
+	public final fun getStreamsLive ()I
+	public final fun getStreamsTotal ()I
+	public final fun getVodsTotal ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/Usage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/Usage$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/Usage;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/Usage;)V
+}
+
+public final class tv/livo/sdk/models/Usage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/Vod {
+	public static final field Companion Ltv/livo/sdk/models/Vod$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/VodStatus;Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Long;ZLtv/livo/sdk/models/VodCommunityFlags;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/VodStatus;Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Long;ZLtv/livo/sdk/models/VodCommunityFlags;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/Long;
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component16 ()Ljava/lang/Double;
+	public final fun component17 ()Ljava/lang/Long;
+	public final fun component18 ()Ljava/lang/Long;
+	public final fun component19 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component20 ()Ltv/livo/sdk/models/VodCommunityFlags;
+	public final fun component21 ()Ljava/lang/Long;
+	public final fun component22 ()Ljava/lang/Long;
+	public final fun component23 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ltv/livo/sdk/models/VodStatus;
+	public final fun component6 ()Ltv/livo/sdk/models/MediaKind;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/Integer;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/VodStatus;Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Long;ZLtv/livo/sdk/models/VodCommunityFlags;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltv/livo/sdk/models/Vod;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/Vod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/livo/sdk/models/VodStatus;Ltv/livo/sdk/models/MediaKind;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Long;ZLtv/livo/sdk/models/VodCommunityFlags;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltv/livo/sdk/models/Vod;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getByteSize ()Ljava/lang/Long;
+	public final fun getCaptionsEnabled ()Z
+	public final fun getCommunity ()Ltv/livo/sdk/models/VodCommunityFlags;
+	public final fun getCreatedAt ()Ljava/lang/Long;
+	public final fun getCurtainId ()Ljava/lang/String;
+	public final fun getDeletedAt ()Ljava/lang/Long;
+	public final fun getDurationSeconds ()Ljava/lang/Integer;
+	public final fun getEnvironmentSlug ()Ljava/lang/String;
+	public final fun getFilename ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Ltv/livo/sdk/models/MediaKind;
+	public final fun getListPosterUrl ()Ljava/lang/String;
+	public final fun getOrganizationId ()Ljava/lang/String;
+	public final fun getPlaybackUrl ()Ljava/lang/String;
+	public final fun getPosterUrl ()Ljava/lang/String;
+	public final fun getProgressCurrent ()Ljava/lang/Long;
+	public final fun getProgressPercent ()Ljava/lang/Double;
+	public final fun getProgressStage ()Ljava/lang/String;
+	public final fun getProgressTotal ()Ljava/lang/Long;
+	public final fun getReleaseAt ()Ljava/lang/Long;
+	public final fun getSha256 ()Ljava/lang/String;
+	public final fun getStatus ()Ltv/livo/sdk/models/VodStatus;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/Vod$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/Vod$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/Vod;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/Vod;)V
+}
+
+public final class tv/livo/sdk/models/Vod$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/VodCommunityFlags {
+	public static final field Companion Ltv/livo/sdk/models/VodCommunityFlags$Companion;
+	public fun <init> ()V
+	public fun <init> (ZLjava/lang/Boolean;)V
+	public synthetic fun <init> (ZLjava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun copy (ZLjava/lang/Boolean;)Ltv/livo/sdk/models/VodCommunityFlags;
+	public static synthetic fun copy$default (Ltv/livo/sdk/models/VodCommunityFlags;ZLjava/lang/Boolean;ILjava/lang/Object;)Ltv/livo/sdk/models/VodCommunityFlags;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCommentsEnabled ()Z
+	public final fun getCommentsOpen ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class tv/livo/sdk/models/VodCommunityFlags$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ltv/livo/sdk/models/VodCommunityFlags$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltv/livo/sdk/models/VodCommunityFlags;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltv/livo/sdk/models/VodCommunityFlags;)V
+}
+
+public final class tv/livo/sdk/models/VodCommunityFlags$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tv/livo/sdk/models/VodStatus : java/lang/Enum {
+	public static final field Companion Ltv/livo/sdk/models/VodStatus$Companion;
+	public static final field ERROR Ltv/livo/sdk/models/VodStatus;
+	public static final field READY Ltv/livo/sdk/models/VodStatus;
+	public static final field TRANSCODING Ltv/livo/sdk/models/VodStatus;
+	public static final field UPLOADED Ltv/livo/sdk/models/VodStatus;
+	public static final field UPLOADING Ltv/livo/sdk/models/VodStatus;
+	public final fun getCanTranscode ()Z
+	public final fun getCanTrash ()Z
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltv/livo/sdk/models/VodStatus;
+	public static fun values ()[Ltv/livo/sdk/models/VodStatus;
+}
+
+public final class tv/livo/sdk/models/VodStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+

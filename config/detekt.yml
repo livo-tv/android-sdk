@@ -1,0 +1,36 @@
+complexity:
+  LongMethod:
+    threshold: 80
+  LongParameterList:
+    constructorThreshold: 12
+    functionThreshold: 10
+  TooManyFunctions:
+    thresholdInFiles: 50
+    thresholdInClasses: 50
+  CyclomaticComplexMethod:
+    threshold: 20
+  ComplexCondition:
+    threshold: 6
+  NestedBlockDepth:
+    threshold: 6
+style:
+  MagicNumber:
+    active: false
+  WildcardImport:
+    active: false
+  ReturnCount:
+    max: 6
+  MaxLineLength:
+    maxLineLength: 180
+  ThrowsCount:
+    max: 8
+  LoopWithTooManyJumpStatements:
+    maxJumpCount: 4
+  MayBeConst:
+    active: false
+exceptions:
+  TooGenericExceptionCaught:
+    active: false
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ["Composable"]
