@@ -1,6 +1,6 @@
 {
   "name": "@livo-tv/android-sdk",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "private": true,
   "description": "Livo native Android SDK. Public Maven artifacts under tv.livo.",
   "repository": {

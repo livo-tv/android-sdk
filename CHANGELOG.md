@@ -1,3 +1,10 @@
+# [1.0.0-rc.3](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2026-09-10)
+
+
+### Bug Fixes
+
+* updated GPG key (2nd attempt) ([92b38fd](https://github.com/livo-tv/android-sdk/commit/92b38fd0cbba770e18f94c02b28d2faecfe783f4))
+
 # [1.0.0-rc.2](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2026-09-10)
 
 
