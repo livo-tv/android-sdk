@@ -1,3 +1,10 @@
+# [1.0.0-rc.4](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2026-09-10)
+
+
+### Bug Fixes
+
+* update AGENTS.md and build.gradle.kts for Android library publishing ([bf10548](https://github.com/livo-tv/android-sdk/commit/bf105484a470f13368bd24eca7f773e890f04b45))
+
 # [1.0.0-rc.3](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2026-09-10)
 
 
