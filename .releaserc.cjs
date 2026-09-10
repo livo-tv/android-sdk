@@ -15,7 +15,7 @@ module.exports = {
 			"@semantic-release/exec",
 			{
 				publishCmd:
-					"./gradlew publishToMavenCentral -PVERSION_NAME=${nextRelease.version} --no-configuration-cache",
+					"bash ./gradlew publishToMavenCentral -PVERSION_NAME=${nextRelease.version} --no-configuration-cache",
 			},
 		],
 		[

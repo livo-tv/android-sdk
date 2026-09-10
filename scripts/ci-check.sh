@@ -5,13 +5,11 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-if [[ -x "./gradlew" ]]; then
-	GRADLE="./gradlew"
-elif [[ -x "./gradlew.bat" ]]; then
-	GRADLE="./gradlew.bat"
+if [[ -f "./gradlew" ]]; then
+	bash ./gradlew --no-daemon ciCheck
+elif [[ -f "./gradlew.bat" ]]; then
+	./gradlew.bat --no-daemon ciCheck
 else
 	echo "gradle wrapper is missing" >&2
 	exit 1
 fi
-
-"$GRADLE" --no-daemon ciCheck

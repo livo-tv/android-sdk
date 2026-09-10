@@ -89,4 +89,5 @@ Partner apps receive `hostToken` / `guestToken` from their backend (`POST /strea
 - RealtimeKit Core is `compileOnly` on `livo-studio`. Tests use `FakeMeetingController`. Host apps add `com.cloudflare.realtimekit:core-android:3.1.0` and run a foreground service (`camera|microphone|mediaPlayback`) plus MediaProjection for screen share.
 - Binary compatibility dumps live at `livo-api/api/livo-api.api`. Run `:livo-api:apiDump` when the public API changes.
 - ktlint 1.5 only honors `ktlint_function_naming_ignore_when_annotated_with=Composable` from a root `.editorconfig` (Gradle `editorConfigOverride` alone is ignored). Without it, PascalCase `@Composable` functions fail `spotlessKotlinApply`.
+- Windows checkouts store `*.sh` / `gradlew` as `100644`. CI must `bash ./scripts/ci-check.sh` (and `bash ./gradlew`); `./scripts/ci-check.sh` is exit 126 otherwise. `git update-index --chmod=+x` if a Unix checkout needs `./`.
 - Never `publishToMavenCentral` from a laptop.
