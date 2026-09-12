@@ -69,7 +69,7 @@ Includes the harness itself, `@livo-tv/blocks`, `@livo-tv/sdk`, `ios-sdk`, and `
 
 Public Kotlin SDK on Maven Central (`tv.livo:livo-bom`, `livo-api`, `livo-player`, `livo-studio`, `livo-community`). Gate: `./scripts/ci-check.sh`. `livo-api` is JVM-only (Ktor). Android modules are Compose. Publish is semantic-release + `./gradlew publishToMavenCentral` — never from a laptop, never hand-bump `VERSION_NAME`.
 
-Partner apps receive `hostToken` / `guestToken` from their backend (`POST /streams/:id/studio/host-session`). Never embed `lk_` API keys in an APK. First-party `android-app` uses JWT `POST /streams/:id/studio/session`. Screen share requires a MediaProjection foreground service in the host app (`docs/SCREEN_SHARE.md`). RealtimeKit Core (`com.cloudflare.realtimekit:core-android:3.1.0`) is a host-app dependency.
+Partner apps receive `hostToken` / `guestToken` from their backend (`POST /streams/:id/studio/host-session`). Never embed `lk_` API keys in an APK. First-party `android-app` uses JWT `POST /streams/:id/studio/session`. Screen share requires a MediaProjection foreground service in the host app (`docs/SCREEN_SHARE.md`). RealtimeKit Core (`com.cloudflare.realtimekit:core-android:3.1.0`) is a host-app dependency. Android libraries skip AGP Dokka and attach an empty `-javadoc.jar` (vanniktech 0.30 has no `JavadocJar.Empty()` on Android; 0.36+ needs Kotlin 2.2).
 
 ## Hard rules
 
