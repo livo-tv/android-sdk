@@ -1,3 +1,10 @@
+# [1.0.0-rc.5](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2026-09-12)
+
+
+### Features
+
+* add Livo SDK components and update AGENTS.md ([d1f3257](https://github.com/livo-tv/android-sdk/commit/d1f3257d24c591d9597cbf9353dccab5f111516c))
+
 # [1.0.0-rc.4](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2026-09-10)
 
 
