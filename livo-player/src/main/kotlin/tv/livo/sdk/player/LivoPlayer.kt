@@ -4,14 +4,17 @@ package tv.livo.sdk.player
 
 import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.view.ViewGroup
 import androidx.annotation.OptIn
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,17 +22,25 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
@@ -109,46 +120,52 @@ public fun LivoPlayer(
         pollPublic(client, state, latestEvent.value)
     }
 
-    Box(modifier.fillMaxSize().background(Color.Black)) {
-        when (phase) {
-            LivoPlayerPhase.LOADING, LivoPlayerPhase.WAITING ->
-                WaitingRoom(
-                    curtain = curtain,
-                    labels = waitingLabels,
-                    hideBranding = hideBranding,
-                    hideStatus = hideStatus,
-                    statusText = if (phase == LivoPlayerPhase.LOADING) "Loading" else waitingLabels.waiting,
-                )
-            LivoPlayerPhase.PLAYING, LivoPlayerPhase.ENDED -> {
-                val url = playbackUrl
-                if (url != null) {
-                    HlsSurface(
-                        url = url,
-                        muted = muted,
-                        autoPlay = autoPlay,
-                        liveUntilEnded = streamId != null,
+    BoxWithConstraints(modifier) {
+        val frame =
+            if (constraints.hasBoundedHeight) {
+                Modifier.fillMaxSize()
+            } else {
+                Modifier.fillMaxWidth().aspectRatio(16f / 9f)
+            }
+        Box(frame.background(Color.Black)) {
+            when (phase) {
+                LivoPlayerPhase.LOADING, LivoPlayerPhase.WAITING ->
+                    WaitingRoom(
+                        curtain = curtain,
+                        hideStatus = hideStatus,
+                        statusText = waitingRoomStatus(phase, waitingLabels),
                     )
-                }
-                overlay.screen?.let { screen ->
-                    Text(
-                        text = screen.text,
-                        color = Color.White,
-                        modifier =
-                        Modifier
-                            .align(Alignment.BottomCenter)
-                            .padding(16.dp)
-                            .background(Color(0x99000000))
-                            .padding(8.dp),
-                    )
+                LivoPlayerPhase.PLAYING, LivoPlayerPhase.ENDED -> {
+                    val url = playbackUrl
+                    if (url != null) {
+                        HlsSurface(
+                            url = url,
+                            muted = muted,
+                            autoPlay = autoPlay,
+                            liveUntilEnded = streamId != null,
+                        )
+                    }
+                    overlay.screen?.let { screen ->
+                        Text(
+                            text = screen.text,
+                            color = Color.White,
+                            modifier =
+                            Modifier
+                                .align(Alignment.BottomCenter)
+                                .padding(16.dp)
+                                .background(Color(0x99000000))
+                                .padding(8.dp),
+                        )
+                    }
                 }
             }
-        }
-        if (hideBranding && hideStatus) {
-            Text(
-                text = phase.name.lowercase(),
-                modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
-                color = Color.Transparent,
-            )
+            if (hideBranding && hideStatus) {
+                Text(
+                    text = phase.name.lowercase(),
+                    modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+                    color = Color.Transparent,
+                )
+            }
         }
     }
 
@@ -192,22 +209,24 @@ public fun LivoPlayer(
     context
 }
 
+internal fun waitingRoomStatus(phase: LivoPlayerPhase, labels: LivoWaitingLabels): String = if (phase == LivoPlayerPhase.LOADING) "Loading" else labels.waiting
+
 @Composable
-internal fun WaitingRoom(curtain: ResolvedCurtain?, labels: LivoWaitingLabels, hideBranding: Boolean, hideStatus: Boolean, statusText: String) {
+internal fun WaitingRoom(curtain: ResolvedCurtain?, hideStatus: Boolean, statusText: String) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         val url = curtain?.url
         if (!url.isNullOrBlank()) {
-            AsyncImage(model = url, contentDescription = null, modifier = Modifier.fillMaxSize())
-        }
-        if (!(hideBranding && hideStatus)) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(labels.waiting, color = Color.White)
-            }
+            AsyncImage(
+                model = url,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize(),
+            )
         }
         Text(
             text = statusText,
             modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
-            color = if (hideBranding && hideStatus) Color.Transparent else Color.White,
+            color = if (hideStatus) Color.Transparent else Color.White,
         )
     }
 }
@@ -228,6 +247,7 @@ private fun HlsSurface(url: String, muted: Boolean, autoPlay: Boolean, liveUntil
                 prepare()
             }
         }
+    var fullscreen by remember { mutableStateOf(false) }
     DisposableEffect(player) {
         val listener =
             object : Player.Listener {
@@ -243,17 +263,50 @@ private fun HlsSurface(url: String, muted: Boolean, autoPlay: Boolean, liveUntil
             player.release()
         }
     }
+    DisposableEffect(fullscreen) {
+        val activity = context.findActivity()
+        activity?.setLivoPlayerFullscreen(fullscreen)
+        onDispose { activity?.setLivoPlayerFullscreen(false) }
+    }
+    if (fullscreen) {
+        Dialog(
+            onDismissRequest = { fullscreen = false },
+            properties =
+            DialogProperties(
+                dismissOnBackPress = true,
+                dismissOnClickOutside = false,
+                usePlatformDefaultWidth = false,
+                decorFitsSystemWindows = false,
+            ),
+        ) {
+            Box(Modifier.fillMaxSize().background(Color.Black)) {
+                PlayerViewHost(player = player, fullscreen = true, onFullscreen = { fullscreen = it })
+            }
+        }
+    } else {
+        PlayerViewHost(player = player, fullscreen = false, onFullscreen = { fullscreen = it })
+    }
+}
+
+@OptIn(UnstableApi::class)
+@Composable
+private fun PlayerViewHost(player: ExoPlayer, fullscreen: Boolean, onFullscreen: (Boolean) -> Unit) {
+    val latestFullscreen = rememberUpdatedState(onFullscreen)
     AndroidView(
         factory = { ctx ->
             PlayerView(ctx).apply {
-                this.player = player
                 useController = true
+                setFullscreenButtonClickListener { latestFullscreen.value(it) }
                 layoutParams =
                     ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             }
         },
         modifier = Modifier.fillMaxSize(),
-        update = { it.player = player },
+        update = { view ->
+            view.player = player
+            view.setFullscreenButtonClickListener { latestFullscreen.value(it) }
+            view.setFullscreenButtonState(fullscreen)
+        },
     )
 }
 
@@ -311,6 +364,35 @@ public fun Activity.enterLivoPictureInPicture() {
 
 public fun Context.livoLockLandscape() {
     (this as? Activity)?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+}
+
+public fun Context.livoUnlockOrientation() {
+    (this as? Activity)?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+}
+
+internal fun Context.findActivity(): Activity? {
+    var ctx: Context = this
+    while (ctx is ContextWrapper) {
+        if (ctx is Activity) return ctx
+        ctx = ctx.baseContext
+    }
+    return null
+}
+
+internal fun Activity.setLivoPlayerFullscreen(on: Boolean) {
+    requestedOrientation =
+        if (on) {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        } else {
+            ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
+    val controller = WindowCompat.getInsetsController(window, window.decorView)
+    controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+    if (on) {
+        controller.hide(WindowInsetsCompat.Type.systemBars())
+    } else {
+        controller.show(WindowInsetsCompat.Type.systemBars())
+    }
 }
 
 @Suppress("unused")
