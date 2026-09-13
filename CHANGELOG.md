@@ -1,3 +1,10 @@
+# [1.0.0-rc.6](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2026-09-13)
+
+
+### Features
+
+* enhance Livo API client with null handling and update dependencies ([5880c4a](https://github.com/livo-tv/android-sdk/commit/5880c4af3cf7ffd8162457741b3d203100823e20))
+
 # [1.0.0-rc.5](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2026-09-12)
 
 
