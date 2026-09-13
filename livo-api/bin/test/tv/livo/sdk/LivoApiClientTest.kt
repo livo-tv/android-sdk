@@ -9,10 +9,12 @@ import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertInstanceOf
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import tv.livo.sdk.models.MediaKind
 import tv.livo.sdk.models.StreamSource
+import tv.livo.sdk.models.StreamStatus
 import java.util.concurrent.atomic.AtomicInteger
 
 class LivoApiClientTest {
@@ -29,6 +31,38 @@ class LivoApiClientTest {
         assertEquals(1, page.items.size)
         assertEquals("v1", page.items.first().resolvedId)
         assertEquals("c1", page.nextCursor)
+        client.close()
+    }
+
+    @Test
+    fun streamGetAcceptsNullPlaybackAndIngest() = runTest {
+        val engine =
+            jsonEngine(
+                """
+                {
+                  "stream": {
+                    "id": "s1",
+                    "title": "Town hall",
+                    "status": "scheduled",
+                    "streamKey": "sk",
+                    "playbackUrl": null,
+                    "mode": "scheduled",
+                    "source": "studio",
+                    "kind": "webinar",
+                    "captionsEnabled": false
+                  },
+                  "playbackUrl": null,
+                  "ingest": null
+                }
+                """.trimIndent(),
+            )
+        val client = LivoApiClient(hosts, LivoCredentials.None, engine)
+        val detail = client.streams.get("s1")
+        assertEquals("s1", detail.stream.id)
+        assertEquals(MediaKind.WEBINAR, detail.stream.kind)
+        assertEquals(StreamStatus.SCHEDULED, detail.stream.status)
+        assertNull(detail.playbackUrl)
+        assertNull(detail.ingest)
         client.close()
     }
 

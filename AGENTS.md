@@ -61,7 +61,7 @@ Includes the harness itself, `@livo-tv/blocks`, `@livo-tv/sdk`, `ios-sdk`, and `
 - `harness/` gate is `pnpm run ci:check` (format + `check.mjs --repo-only`). Husky pre-commit runs the same script as GitHub CI.
 - `blocks/` and `sdk/` gates are `pnpm run ci:check` (format + lint + typecheck + test + build). Publish is semantic-release + npm OIDC — never `npm publish` from an agent.
 - `ios-sdk/` gate is `./scripts/ci-check.sh`. Publish is semantic-release git tags for SPM — never npm. `realtimekit-ios-core` is pinned `from: "3.1.0"` (not `branch: "main"`).
-- `android-sdk/` gate is `./scripts/ci-check.sh`. Publish is semantic-release + Maven Central (`tv.livo`) — never `publishToMavenCentral` from a laptop. RealtimeKit Core is a host-app dependency (`com.cloudflare.realtimekit:core-android:3.1.0`).
+- `android-sdk/` gate is `./scripts/ci-check.sh`. Publish is semantic-release + Maven Central (`tv.livo`) — never `publishToMavenCentral` from a laptop. RealtimeKit Core is `implementation` on `livo-studio` (`com.cloudflare.realtimekit:core-android:3.1.0`).
 - Never local-deploy. Local agents: no commit/push unless asked. Cloud agents: conventional commits.
 - After a stable release or hotfix on `main`, fold `main` back into dev (ADR 0026) so the next dev → `main` PR does not conflict on version files.
 
@@ -69,7 +69,7 @@ Includes the harness itself, `@livo-tv/blocks`, `@livo-tv/sdk`, `ios-sdk`, and `
 
 Public Kotlin SDK on Maven Central (`tv.livo:livo-bom`, `livo-api`, `livo-player`, `livo-studio`, `livo-community`). Gate: `./scripts/ci-check.sh`. `livo-api` is JVM-only (Ktor). Android modules are Compose. Publish is semantic-release + `./gradlew publishToMavenCentral` — never from a laptop, never hand-bump `VERSION_NAME`.
 
-Partner apps receive `hostToken` / `guestToken` from their backend (`POST /streams/:id/studio/host-session`). Never embed `lk_` API keys in an APK. First-party `android-app` uses JWT `POST /streams/:id/studio/session`. Screen share requires a MediaProjection foreground service in the host app (`docs/SCREEN_SHARE.md`). RealtimeKit Core (`com.cloudflare.realtimekit:core-android:3.1.0`) is a host-app dependency. Android libraries skip AGP Dokka and attach an empty `-javadoc.jar` (vanniktech 0.30 has no `JavadocJar.Empty()` on Android; 0.36+ needs Kotlin 2.2).
+Partner apps receive `hostToken` / `guestToken` from their backend (`POST /streams/:id/studio/host-session`). Never embed `lk_` API keys in an APK. First-party `android-app` uses JWT `POST /streams/:id/studio/session`. Screen share requires a MediaProjection foreground service in the host app (`docs/SCREEN_SHARE.md`). RealtimeKit Core (`com.cloudflare.realtimekit:core-android:3.1.0`) is `implementation` on `livo-studio` (plus core library desugaring). Android libraries skip AGP Dokka and attach an empty `-javadoc.jar` (vanniktech 0.30 has no `JavadocJar.Empty()` on Android; 0.36+ needs Kotlin 2.2).
 
 ## Hard rules
 
@@ -86,10 +86,11 @@ Partner apps receive `hostToken` / `guestToken` from their backend (`POST /strea
 - `livo-api` is JVM-only. Public media routes may still send Bearer; they ignore it. Do not share a second `HttpClient` off `HttpClient.engine` (not a public API; closing one client closes the engine).
 - Sign-out must POST `{}` with `Content-Type: application/json`. Password 403 is `PASSWORD_LOGIN_DISABLED`, not session expiry.
 - Google social `idToken` is an **object** (`{ token, accessToken? }`). Credential Manager often yields no access token.
-- RealtimeKit Core is `compileOnly` on `livo-studio`. Tests use `FakeMeetingController`. Host apps add `com.cloudflare.realtimekit:core-android:3.1.0` and run a foreground service (`camera|microphone|mediaPlayback`) plus MediaProjection for screen share.
+- RealtimeKit Core is `implementation` on `livo-studio` (`com.cloudflare.realtimekit:core-android:3.1.0`). Tests use `FakeMeetingController`. The first-party app still runs a foreground service (`camera|microphone|mediaPlayback`) plus MediaProjection while sharing. Studio requests CAMERA / RECORD_AUDIO in-room before `join`. Video views are cached 1:1 per (participant, screen) — registering the same RTK `VideoView` twice nulls the track. `core-android:3.1.0` also needs core library desugaring (`desugar_jdk_libs`) on `livo-studio` and every consuming app. Its AAR metadata asks for compileSdk 37; AGP 8.12 only supports 36 and the platform installs as `android-37.0`, so we stay on compileSdk 36 and skip `check*AarMetadata`.
 - Binary compatibility dumps live at `livo-api/api/livo-api.api`. Run `:livo-api:apiDump` when the public API changes.
 - ktlint 1.5 only honors `ktlint_function_naming_ignore_when_annotated_with=Composable` from a root `.editorconfig` (Gradle `editorConfigOverride` alone is ignored). Without it, PascalCase `@Composable` functions fail `spotlessKotlinApply`.
 - Windows checkouts store `*.sh` / `gradlew` as `100644`. CI must `bash ./scripts/ci-check.sh` (and `bash ./gradlew`); `./scripts/ci-check.sh` is exit 126 otherwise. `git update-index --chmod=+x` if a Unix checkout needs `./`.
 - Gradle wrapper must be **8.13+** (AGP 8.12). `8.11.1` fails `Minimum supported Gradle version is 8.13` on `:example`.
+- `JsonObject.get` is not Kotlin-null when the value is JSON `null`. Decoding that as `String` throws `Expected string value for a non-null key 'primitive'`. Use `livoJson.decodeOrNull`. Scheduled webinars send `playbackUrl: null` and `ingest: null` on `GET /streams/:id`.
 
 - Android libraries skip AGP Dokka (`publishJavadocJar = false`) and attach an empty `-javadoc.jar`. vanniktech 0.30 has no `JavadocJar.Empty()` on `AndroidSingleVariantLibrary`; 0.36+ needs Kotlin 2.2. AGP 8.8 Dokka cannot read JVM 17 sealed types in `livo-api` (`PermittedSubclasses requires ASM9`). Do not omit the javadoc artifact.

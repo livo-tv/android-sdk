@@ -69,18 +69,14 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
             val url = query("${hosts.api}/streams", mapOf("q" to q, "limit" to "$limit", "cursor" to cursor))
             val obj = http.json<JsonObject>(HttpMethod.Get, url)
             val items = decodeList<LiveStream>(obj, "streams")
-            return CursorPage(items, obj["nextCursor"]?.let { livoJson.decodeFromJsonElement(it) })
+            return CursorPage(items, cursorOf(obj))
         }
 
         public suspend fun get(id: String): StreamDetail {
             val obj = http.json<JsonObject>(HttpMethod.Get, "${hosts.api}/streams/$id")
-            val stream =
-                obj["stream"]?.let { livoJson.decodeFromJsonElement<LiveStream>(it) }
-                    ?: livoJson.decodeFromJsonElement<LiveStream>(obj)
-            val playback =
-                obj["playbackUrl"]?.let { livoJson.decodeFromJsonElement<String>(it) }
-                    ?: stream.playbackUrl
-            val ingest = obj["ingest"]?.let { livoJson.decodeFromJsonElement<IngestInfo>(it) }
+            val stream = unwrap<LiveStream>(obj, "stream")
+            val playback = livoJson.decodeOrNull<String>(obj["playbackUrl"]) ?: stream.playbackUrl
+            val ingest = livoJson.decodeOrNull<IngestInfo>(obj["ingest"])
             return StreamDetail(stream, playback, ingest)
         }
 
@@ -91,8 +87,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
 
         public suspend fun patch(id: String, body: JsonObject): LiveStream {
             val obj = http.json<JsonObject>(HttpMethod.Patch, "${hosts.api}/streams/$id", body)
-            return obj["stream"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "stream")
         }
 
         public suspend fun start(id: String): LiveStream = action(id, "start")
@@ -130,8 +125,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
                     "${hosts.api}/streams/$id/$name",
                     emptyMap<String, String>(),
                 )
-            return obj["stream"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "stream")
         }
     }
 
@@ -144,8 +138,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
 
         public suspend fun get(id: String): Vod {
             val obj = http.json<JsonObject>(HttpMethod.Get, "${hosts.api}/vods/$id")
-            return obj["vod"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "vod")
         }
 
         public suspend fun create(request: CreateVodRequest): CreateVodResult {
@@ -164,8 +157,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
 
         public suspend fun patch(id: String, body: JsonObject): Vod {
             val obj = http.json<JsonObject>(HttpMethod.Patch, "${hosts.api}/vods/$id", body)
-            return obj["vod"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "vod")
         }
 
         public suspend fun uploadParts(id: String): UploadPartsResponse = http.json(HttpMethod.Get, "${hosts.api}/vods/$id/upload-parts")
@@ -233,8 +225,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
 
         public suspend fun patch(id: String, body: JsonObject): Curtain {
             val obj = http.json<JsonObject>(HttpMethod.Patch, "${hosts.api}/curtains/$id", body)
-            return obj["curtain"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "curtain")
         }
 
         public suspend fun presignPart(id: String, partNumber: Int): UploadPartUrl {
@@ -338,7 +329,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
         public suspend fun presence(id: String, sessionId: String): Int {
             val body = buildJsonObject { put("sessionId", sessionId) }
             val obj = http.json<JsonObject>(HttpMethod.Post, "${hosts.api}/public/streams/$id/presence", body)
-            return obj["viewers"]?.let { livoJson.decodeFromJsonElement<Int>(it) } ?: 0
+            return livoJson.decodeOrNull<Int>(obj["viewers"]) ?: 0
         }
 
         public suspend fun captions(id: String, lang: String): List<CaptionCue> {
@@ -347,7 +338,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
                     header(HttpHeaders.Accept, "application/json")
                 }
             val cues = obj["cues"] ?: return emptyList()
-            return livoJson.decodeFromJsonElement(cues)
+            return livoJson.decodeOrNull(cues) ?: emptyList()
         }
 
         public suspend fun beacon(sessionId: String, events: List<PlaybackBeaconEvent>) {
@@ -407,22 +398,19 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
 
         public suspend fun create(body: JsonObject): CommunityItem {
             val obj = http.json<JsonObject>(HttpMethod.Post, "${hosts.api}/$kind/$id/community", body)
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
 
         public suspend fun patch(itemId: String, body: JsonObject): CommunityItem {
             val obj = http.json<JsonObject>(HttpMethod.Patch, "${hosts.api}/$kind/$id/community/$itemId", body)
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
 
         public suspend fun upvote(itemId: String, guestId: String): CommunityItem {
             val body = buildJsonObject { put("guestId", guestId) }
             val obj =
                 http.json<JsonObject>(HttpMethod.Post, "${hosts.api}/$kind/$id/community/$itemId/upvote", body)
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
 
         public suspend fun answer(itemId: String, body: String, displayName: String, guestId: String, picture: String? = null): CommunityItem {
@@ -434,8 +422,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
             }
             val obj =
                 http.json<JsonObject>(HttpMethod.Post, "${hosts.api}/$kind/$id/community/$itemId/answer", payload)
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
     }
 
@@ -452,14 +439,13 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
 
         public suspend fun create(body: JsonObject): CommunityItem {
             val obj = http.json<JsonObject>(HttpMethod.Post, "${hosts.api}/public/$kind/$id/community", body)
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
 
         public suspend fun canAnswer(guestId: String): Boolean {
             val url = query("${hosts.api}/public/$kind/$id/community/can-answer", mapOf("guestId" to guestId))
             val obj = http.json<JsonObject>(HttpMethod.Get, url)
-            return obj["canAnswer"]?.let { livoJson.decodeFromJsonElement(it) } ?: false
+            return livoJson.decodeOrNull<Boolean>(obj["canAnswer"]) ?: false
         }
 
         public suspend fun upvote(itemId: String, guestId: String): CommunityItem {
@@ -470,8 +456,7 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
                     "${hosts.api}/public/$kind/$id/community/$itemId/upvote",
                     body,
                 )
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
 
         public suspend fun answer(itemId: String, body: String, displayName: String, guestId: String, picture: String? = null): CommunityItem {
@@ -487,19 +472,17 @@ public class LivoApiClient(public val hosts: LivoHosts, credentials: LivoCredent
                     "${hosts.api}/public/$kind/$id/community/$itemId/answer",
                     payload,
                 )
-            return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-                ?: livoJson.decodeFromJsonElement(obj)
+            return unwrap(obj, "item")
         }
     }
 
     public fun controlClient(token: String): StudioControlClient = StudioControlClient(token, hosts, http)
 
-    private inline fun <reified T> decodeList(obj: JsonObject, key: String): List<T> {
-        val el = obj[key] ?: return emptyList()
-        return livoJson.decodeFromJsonElement(el)
-    }
+    private inline fun <reified T> decodeList(obj: JsonObject, key: String): List<T> = livoJson.decodeOrNull(obj[key]) ?: emptyList()
 
-    private fun cursorOf(obj: JsonObject): String? = obj["nextCursor"]?.let { livoJson.decodeFromJsonElement(it) }
+    private inline fun <reified T> unwrap(obj: JsonObject, key: String): T = livoJson.decodeOrNull<T>(obj[key]) ?: livoJson.decodeFromJsonElement(obj)
+
+    private fun cursorOf(obj: JsonObject): String? = livoJson.decodeOrNull(obj["nextCursor"])
 
     private fun kindWire(kind: MediaKind?): String? = when (kind) {
         MediaKind.VOD -> "vod"
@@ -598,7 +581,7 @@ public class StudioControlClient internal constructor(token: String, private val
 
     public suspend fun livestream(): StudioLivestreamEgress {
         val obj = http.json<JsonObject>(HttpMethod.Post, path("livestream"), emptyMap<String, String>())
-        val raw = obj["egress"]?.let { livoJson.decodeFromJsonElement<String>(it) } ?: "starting"
+        val raw = livoJson.decodeOrNull<String>(obj["egress"]) ?: "starting"
         return if (raw == "live") StudioLivestreamEgress.LIVE else StudioLivestreamEgress.STARTING
     }
 
@@ -627,8 +610,7 @@ public class StudioControlClient internal constructor(token: String, private val
                 "${hosts.api}/public/studio/control/${java.net.URLEncoder.encode(token, Charsets.UTF_8)}/community/$itemId/answer",
                 payload,
             )
-        return obj["item"]?.let { livoJson.decodeFromJsonElement(it) }
-            ?: livoJson.decodeFromJsonElement(obj)
+        return livoJson.decodeOrNull<CommunityItem>(obj["item"]) ?: livoJson.decodeFromJsonElement(obj)
     }
 
     private fun path(action: String): String {

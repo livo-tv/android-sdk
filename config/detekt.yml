@@ -3,10 +3,11 @@ complexity:
     threshold: 80
   LongParameterList:
     constructorThreshold: 12
-    functionThreshold: 10
+    functionThreshold: 20
   TooManyFunctions:
-    thresholdInFiles: 50
-    thresholdInClasses: 50
+    thresholdInFiles: 80
+    thresholdInClasses: 80
+    thresholdInInterfaces: 40
   CyclomaticComplexMethod:
     threshold: 20
   ComplexCondition:

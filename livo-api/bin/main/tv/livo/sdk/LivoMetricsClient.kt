@@ -54,14 +54,14 @@ public class LivoMetricsClient(hosts: LivoHosts, credentials: LivoCredentials, e
         val items = obj["items"] ?: return CursorPage()
         return CursorPage(
             livoJson.decodeFromJsonElement(items),
-            obj["nextCursor"]?.let { livoJson.decodeFromJsonElement(it) },
+            livoJson.decodeOrNull(obj["nextCursor"]),
         )
     }
 
     public suspend fun spend(period: MetricPeriod = MetricPeriod.MONTH): Double {
         val url = query("$base/metrics/spend", mapOf("period" to period.name.lowercase()))
         val obj = http.json<JsonObject>(HttpMethod.Get, url)
-        return obj["spendUsd"]?.let { livoJson.decodeFromJsonElement(it) } ?: 0.0
+        return livoJson.decodeOrNull(obj["spendUsd"]) ?: 0.0
     }
 
     public fun close() {

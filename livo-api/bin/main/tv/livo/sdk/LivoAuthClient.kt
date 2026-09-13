@@ -46,7 +46,7 @@ public class LivoAuthClient(public val hosts: LivoHosts, private val cookies: Co
     public suspend fun loginMethod(email: String): LoginMethod = try {
         val url = query("${hosts.auth}/api/auth/login-method", mapOf("email" to email))
         val obj = http.json<JsonObject>(HttpMethod.Get, url)
-        val method = obj["method"]?.let { livoJson.decodeFromJsonElement<String>(it) } ?: "otp"
+        val method = livoJson.decodeOrNull<String>(obj["method"]) ?: "otp"
         if (method == "password") LoginMethod.PASSWORD else LoginMethod.OTP
     } catch (_: Exception) {
         LoginMethod.OTP
@@ -161,8 +161,7 @@ public class LivoAuthClient(public val hosts: LivoHosts, private val cookies: Co
 
     public suspend fun mintJwt(): String {
         val obj = http.json<JsonObject>(HttpMethod.Get, "${hosts.auth}/api/auth/token")
-        return obj["token"]?.let { livoJson.decodeFromJsonElement(it) }
-            ?: error("token response missing token")
+        return livoJson.decodeOrNull<String>(obj["token"]) ?: error("token response missing token")
     }
 
     public suspend fun signOut() {
@@ -369,8 +368,8 @@ public class LivoAuthClient(public val hosts: LivoHosts, private val cookies: Co
         val members = obj["members"] ?: obj["items"]
         val invitations = obj["invitations"] ?: obj["pendingInvitations"]
         return MembersPayload(
-            members = members?.let { livoJson.decodeFromJsonElement(it) } ?: emptyList(),
-            invitations = invitations?.let { livoJson.decodeFromJsonElement(it) } ?: emptyList(),
+            members = livoJson.decodeOrNull(members) ?: emptyList(),
+            invitations = livoJson.decodeOrNull(invitations) ?: emptyList(),
         )
     }
 }

@@ -11,7 +11,7 @@ version = providers.gradleProperty("VERSION_NAME").get()
 
 android {
     namespace = "tv.livo.sdk.studio"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 28
         consumerProguardFiles("consumer-rules.pro")
@@ -19,6 +19,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -37,12 +38,15 @@ android {
 
 dependencies {
     api(project(":livo-api"))
+    coreLibraryDesugaring(libs.desugar.jdk)
+    implementation(libs.realtimekit.core)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.foundation)
     implementation(libs.compose.material3)
     implementation(libs.compose.material.icons)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.coil.compose)

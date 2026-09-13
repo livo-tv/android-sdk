@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "tv.livo.sdk.example"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "tv.livo.sdk.example"
         minSdk = 28
@@ -17,6 +17,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -36,4 +37,5 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
+    coreLibraryDesugaring(libs.desugar.jdk)
 }
