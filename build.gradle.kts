@@ -4,6 +4,9 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.api.tasks.bundling.Jar
+import org.jetbrains.dokka.gradle.DokkaExtension
+import org.jetbrains.dokka.gradle.engine.parameters.VisibilityModifier
+import java.net.URI
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -12,6 +15,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.dokka) apply false
     alias(libs.plugins.spotless)
     alias(libs.plugins.detekt)
     alias(libs.plugins.bcv)
@@ -22,6 +26,24 @@ apiValidation {
     ignoredProjects.addAll(
         listOf("example", "livo-bom", "livo-player", "livo-studio", "livo-community"),
     )
+}
+
+fun Project.configurePublishedDokka() {
+    pluginManager.apply("org.jetbrains.dokka")
+    extensions.configure<DokkaExtension>("dokka") {
+        dokkaSourceSets.configureEach {
+            documentedVisibilities.set(
+                setOf(VisibilityModifier.Public, VisibilityModifier.Protected),
+            )
+            sourceLink {
+                localDirectory.set(file("src/main/kotlin"))
+                remoteUrl.set(
+                    URI("https://github.com/livo-tv/android-sdk/tree/main/${project.name}/src/main/kotlin"),
+                )
+                remoteLineSuffix.set("#L")
+            }
+        }
+    }
 }
 
 subprojects {
@@ -58,8 +80,15 @@ subprojects {
         }
     }
 
+    pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
+        pluginManager.withPlugin("com.vanniktech.maven.publish") {
+            configurePublishedDokka()
+        }
+    }
+
     pluginManager.withPlugin("com.android.library") {
         pluginManager.withPlugin("com.vanniktech.maven.publish") {
+            configurePublishedDokka()
             extensions.configure<MavenPublishBaseExtension>("mavenPublishing") {
                 configure(
                     AndroidSingleVariantLibrary(
@@ -69,15 +98,16 @@ subprojects {
                     ),
                 )
             }
-            val javadocJar =
-                tasks.register<Jar>("emptyJavadocJar") {
+            val dokkaHtmlJar =
+                tasks.register<Jar>("dokkaHtmlJar") {
                     archiveClassifier.set("javadoc")
+                    from(tasks.named("dokkaGeneratePublicationHtml"))
                 }
             extensions
                 .getByType<PublishingExtension>()
                 .publications
                 .withType<MavenPublication>()
-                .configureEach { artifact(javadocJar) }
+                .configureEach { artifact(dokkaHtmlJar) }
         }
     }
 }
@@ -89,14 +119,18 @@ tasks.register("ciCheck") {
         ":livo-api:detekt",
         ":livo-api:test",
         ":livo-api:apiCheck",
+        ":livo-api:dokkaGeneratePublicationHtml",
         ":livo-player:spotlessCheck",
         ":livo-player:lint",
         ":livo-player:testDebugUnitTest",
+        ":livo-player:dokkaGeneratePublicationHtml",
         ":livo-studio:spotlessCheck",
         ":livo-studio:lint",
         ":livo-studio:testDebugUnitTest",
+        ":livo-studio:dokkaGeneratePublicationHtml",
         ":livo-community:spotlessCheck",
         ":livo-community:lint",
+        ":livo-community:dokkaGeneratePublicationHtml",
         ":example:assembleDebug",
     )
 }

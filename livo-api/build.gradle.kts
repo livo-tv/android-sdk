@@ -1,3 +1,6 @@
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
@@ -66,4 +69,10 @@ mavenPublishing {
             developerConnection.set("scm:git:ssh://git@github.com/livo-tv/android-sdk.git")
         }
     }
+    configure(
+        KotlinJvm(
+            javadocJar = JavadocJar.Dokka("dokkaGeneratePublicationHtml"),
+            sourcesJar = true,
+        ),
+    )
 }

@@ -17,6 +17,7 @@ spotless = "7.0.2"
 detekt = "1.23.8"
 bcv = "0.17.0"
 mavenPublish = "0.30.0"
+dokka = "2.2.0"
 realtimekit = "3.1.0"
 coil = "2.7.0"
 desugarJdk = "2.1.5"
@@ -68,3 +69,4 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 bcv = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "bcv" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
