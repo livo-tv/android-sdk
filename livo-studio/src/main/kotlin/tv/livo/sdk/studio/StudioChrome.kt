@@ -22,8 +22,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material.icons.automirrored.filled.ScreenShare
@@ -71,6 +73,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -97,7 +100,6 @@ internal fun StudioInRoom(model: StudioRoomModel) {
     val activeSpeaker by model.activeSpeaker.collectAsState()
     val micOn by model.micOn.collectAsState()
     val cameraOn by model.cameraOn.collectAsState()
-    val screenOn by model.screenOn.collectAsState()
     val live by model.live.collectAsState()
     val streamStatus by model.streamStatus.collectAsState()
     val publishing by model.publishing.collectAsState()
@@ -105,7 +107,6 @@ internal fun StudioInRoom(model: StudioRoomModel) {
     val stageRequests by model.stageRequests.collectAsState()
     val chat by model.chat.collectAsState()
     val unread by model.unreadChat.collectAsState()
-    val selfStage by model.selfStage.collectAsState()
     val chatOpen by model.chatOpen.collectAsState()
     val layout =
         remember(participants, activeSpeaker) {
@@ -130,7 +131,8 @@ internal fun StudioInRoom(model: StudioRoomModel) {
             peopleBadge = waitlist.size + stageRequests.size,
             unread = unread,
             onPeople = { peopleOpen = true },
-            onMore = { moreOpen = true },
+            moreOpen = moreOpen,
+            onMoreOpen = { moreOpen = it },
             onSettings = { settingsOpen = true },
             onHangup = { if (model.canStop) confirm = HostConfirm.StopBroadcast else model.leave() },
             onLongPress = { if (model.isModerator && !it.isSelf) menuFor = it },
@@ -142,16 +144,12 @@ internal fun StudioInRoom(model: StudioRoomModel) {
             stageRequests = stageRequests,
             chat = chat,
             live = live,
-            screenOn = screenOn,
-            selfStage = selfStage,
             chatOpen = chatOpen,
             peopleOpen = peopleOpen,
-            moreOpen = moreOpen,
             settingsOpen = settingsOpen,
             menuFor = menuFor,
             confirm = confirm,
             onPeopleOpen = { peopleOpen = it },
-            onMoreOpen = { moreOpen = it },
             onSettingsOpen = { settingsOpen = it },
             onMenuFor = { menuFor = it },
             onConfirm = { confirm = it },
@@ -172,12 +170,15 @@ private fun StudioInRoomChrome(
     peopleBadge: Int,
     unread: Int,
     onPeople: () -> Unit,
-    onMore: () -> Unit,
+    moreOpen: Boolean,
+    onMoreOpen: (Boolean) -> Unit,
     onSettings: () -> Unit,
     onHangup: () -> Unit,
     onLongPress: (StudioParticipant) -> Unit,
 ) {
     val theme = LocalStudioTheme.current
+    val screenOn by model.screenOn.collectAsState()
+    val selfStage by model.selfStage.collectAsState()
     Column(Modifier.fillMaxSize()) {
         StudioHeader(
             title = model.session.stream.title,
@@ -202,18 +203,19 @@ private fun StudioInRoomChrome(
             layout.pip?.let { pip -> StudioSelfPip(model = model, tile = pip) }
         }
         StudioToolbar(
+            model = model,
             micOn = micOn,
             cameraOn = cameraOn,
-            canUseMedia = model.canUseMediaControls,
             peopleBadge = peopleBadge,
             unread = unread,
-            onMic = { model.toggleMic() },
-            onCamera = { model.toggleCamera() },
-            onChat = { model.setChatOpen(true) },
-            onPeople = onPeople,
-            onMore = onMore,
-            onHangup = onHangup,
+            moreOpen = moreOpen,
+            screenOn = screenOn,
+            selfStage = selfStage,
             hangupTint = theme.destructive,
+            onPeople = onPeople,
+            onMoreOpen = onMoreOpen,
+            onSettings = onSettings,
+            onHangup = onHangup,
         )
     }
 }
@@ -226,23 +228,16 @@ private fun StudioInRoomOverlays(
     stageRequests: List<StudioStageRequest>,
     chat: List<StudioChatMessage>,
     live: Boolean,
-    screenOn: Boolean,
-    selfStage: StudioStageStatus?,
     chatOpen: Boolean,
     peopleOpen: Boolean,
-    moreOpen: Boolean,
     settingsOpen: Boolean,
     menuFor: StudioParticipant?,
     confirm: HostConfirm?,
     onPeopleOpen: (Boolean) -> Unit,
-    onMoreOpen: (Boolean) -> Unit,
     onSettingsOpen: (Boolean) -> Unit,
     onMenuFor: (StudioParticipant?) -> Unit,
     onConfirm: (HostConfirm?) -> Unit,
 ) {
-    if (moreOpen) {
-        StudioMoreOverlay(model, screenOn, selfStage, onMoreOpen, onSettingsOpen)
-    }
     if (peopleOpen) {
         StudioPeopleSheet(
             model = model,
@@ -260,46 +255,6 @@ private fun StudioInRoomOverlays(
         StudioSettingsDialog(model = model, onDismiss = { onSettingsOpen(false) })
     }
     StudioHostActionLayer(model, live, menuFor, confirm, onMenuFor, onConfirm)
-}
-
-@Composable
-private fun StudioMoreOverlay(model: StudioRoomModel, screenOn: Boolean, selfStage: StudioStageStatus?, onMoreOpen: (Boolean) -> Unit, onSettingsOpen: (Boolean) -> Unit) {
-    StudioMoreMenu(
-        expanded = true,
-        onDismiss = { onMoreOpen(false) },
-        canUseMedia = model.canUseMediaControls,
-        isModerator = model.isModerator,
-        selfStage = selfStage,
-        screenOn = screenOn,
-        onSwitchCamera = {
-            model.switchCamera()
-            onMoreOpen(false)
-        },
-        onScreenShare = {
-            model.toggleScreenShare()
-            onMoreOpen(false)
-        },
-        onSettings = {
-            onSettingsOpen(true)
-            onMoreOpen(false)
-        },
-        onAskStage = {
-            model.requestStage()
-            onMoreOpen(false)
-        },
-        onCancelStage = {
-            model.cancelStageRequest()
-            onMoreOpen(false)
-        },
-        onJoinStage = {
-            model.joinStage()
-            onMoreOpen(false)
-        },
-        onLeaveStage = {
-            model.leaveStage()
-            onMoreOpen(false)
-        },
-    )
 }
 
 @Composable
@@ -544,33 +499,39 @@ private fun StudioSelfPip(model: StudioRoomModel, tile: StudioDisplayTile) {
 
 @Composable
 private fun StudioToolbar(
+    model: StudioRoomModel,
     micOn: Boolean,
     cameraOn: Boolean,
-    canUseMedia: Boolean,
     peopleBadge: Int,
     unread: Int,
-    onMic: () -> Unit,
-    onCamera: () -> Unit,
-    onChat: () -> Unit,
-    onPeople: () -> Unit,
-    onMore: () -> Unit,
-    onHangup: () -> Unit,
+    moreOpen: Boolean,
+    screenOn: Boolean,
+    selfStage: StudioStageStatus?,
     hangupTint: Color,
+    onPeople: () -> Unit,
+    onMoreOpen: (Boolean) -> Unit,
+    onSettings: () -> Unit,
+    onHangup: () -> Unit,
 ) {
+    val canUseMedia = model.canUseMediaControls
+    fun closeMore(action: () -> Unit) {
+        action()
+        onMoreOpen(false)
+    }
     Row(
         Modifier.fillMaxWidth().padding(12.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (canUseMedia) {
-            IconButton(onClick = onMic) {
+            IconButton(onClick = { model.toggleMic() }) {
                 Icon(
                     if (micOn) Icons.Filled.Mic else Icons.Filled.MicOff,
                     contentDescription = stringResource(if (micOn) R.string.studio_mute else R.string.studio_unmute),
                     tint = Color.White,
                 )
             }
-            IconButton(onClick = onCamera) {
+            IconButton(onClick = { model.toggleCamera() }) {
                 Icon(
                     if (cameraOn) Icons.Filled.Videocam else Icons.Filled.VideocamOff,
                     contentDescription = stringResource(if (cameraOn) R.string.studio_camera_off else R.string.studio_camera_on),
@@ -578,7 +539,7 @@ private fun StudioToolbar(
                 )
             }
         }
-        IconButton(onClick = onChat) {
+        IconButton(onClick = { model.setChatOpen(true) }) {
             BadgedBox(badge = { if (unread > 0) Badge { Text("$unread") } }) {
                 Icon(Icons.AutoMirrored.Filled.Chat, contentDescription = stringResource(R.string.studio_opens_chat), tint = Color.White)
             }
@@ -588,8 +549,25 @@ private fun StudioToolbar(
                 Icon(Icons.Filled.People, contentDescription = stringResource(R.string.studio_people), tint = Color.White)
             }
         }
-        IconButton(onClick = onMore) {
-            Icon(Icons.Filled.MoreHoriz, contentDescription = stringResource(R.string.studio_more), tint = Color.White)
+        Box {
+            IconButton(onClick = { onMoreOpen(!moreOpen) }) {
+                Icon(Icons.Filled.MoreHoriz, contentDescription = stringResource(R.string.studio_more), tint = Color.White)
+            }
+            StudioMoreMenu(
+                expanded = moreOpen,
+                onDismiss = { onMoreOpen(false) },
+                canUseMedia = canUseMedia,
+                isModerator = model.isModerator,
+                selfStage = selfStage,
+                screenOn = screenOn,
+                onSwitchCamera = { closeMore { model.switchCamera() } },
+                onScreenShare = { closeMore { model.toggleScreenShare() } },
+                onSettings = { closeMore { onSettings() } },
+                onAskStage = { closeMore { model.requestStage() } },
+                onCancelStage = { closeMore { model.cancelStageRequest() } },
+                onJoinStage = { closeMore { model.joinStage() } },
+                onLeaveStage = { closeMore { model.leaveStage() } },
+            )
         }
         IconButton(onClick = onHangup) {
             Icon(Icons.Filled.CallEnd, contentDescription = stringResource(R.string.studio_leave), tint = hangupTint)
@@ -613,24 +591,22 @@ private fun StudioMoreMenu(
     onJoinStage: () -> Unit,
     onLeaveStage: () -> Unit,
 ) {
-    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.BottomEnd) {
-        DropdownMenu(expanded = expanded, onDismissRequest = onDismiss) {
-            if (canUseMedia) {
-                DropdownMenuItem(text = { Text(stringResource(R.string.studio_switch_camera)) }, onClick = onSwitchCamera, leadingIcon = { Icon(Icons.Filled.Cameraswitch, null) })
-                DropdownMenuItem(
-                    text = { Text(stringResource(if (screenOn) R.string.studio_stop_share else R.string.studio_screen_share)) },
-                    onClick = onScreenShare,
-                    leadingIcon = { Icon(if (screenOn) Icons.AutoMirrored.Filled.StopScreenShare else Icons.AutoMirrored.Filled.ScreenShare, null) },
-                )
-            }
-            DropdownMenuItem(text = { Text(stringResource(R.string.studio_settings)) }, onClick = onSettings, leadingIcon = { Icon(Icons.Filled.Settings, null) })
-            if (!isModerator) {
-                when (selfStage) {
-                    StudioStageStatus.REQUESTED -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_cancel_request)) }, onClick = onCancelStage)
-                    StudioStageStatus.ACCEPTED_TO_JOIN_STAGE -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_joining_stage)) }, onClick = onJoinStage)
-                    StudioStageStatus.ON_STAGE -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_leave_stage)) }, onClick = onLeaveStage)
-                    else -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_ask_stage)) }, onClick = onAskStage)
-                }
+    DropdownMenu(expanded = expanded, onDismissRequest = onDismiss) {
+        if (canUseMedia) {
+            DropdownMenuItem(text = { Text(stringResource(R.string.studio_switch_camera)) }, onClick = onSwitchCamera, leadingIcon = { Icon(Icons.Filled.Cameraswitch, null) })
+            DropdownMenuItem(
+                text = { Text(stringResource(if (screenOn) R.string.studio_stop_share else R.string.studio_screen_share)) },
+                onClick = onScreenShare,
+                leadingIcon = { Icon(if (screenOn) Icons.AutoMirrored.Filled.StopScreenShare else Icons.AutoMirrored.Filled.ScreenShare, null) },
+            )
+        }
+        DropdownMenuItem(text = { Text(stringResource(R.string.studio_settings)) }, onClick = onSettings, leadingIcon = { Icon(Icons.Filled.Settings, null) })
+        if (!isModerator) {
+            when (selfStage) {
+                StudioStageStatus.REQUESTED -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_cancel_request)) }, onClick = onCancelStage)
+                StudioStageStatus.ACCEPTED_TO_JOIN_STAGE -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_joining_stage)) }, onClick = onJoinStage)
+                StudioStageStatus.ON_STAGE -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_leave_stage)) }, onClick = onLeaveStage)
+                else -> DropdownMenuItem(text = { Text(stringResource(R.string.studio_ask_stage)) }, onClick = onAskStage)
             }
         }
     }
@@ -649,7 +625,9 @@ private fun StudioPeopleSheet(
     val context = LocalContext.current
     val guestUrl = model.session.guestUrl
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
-        Column(Modifier.padding(16.dp)) {
+        Column(
+            Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp).padding(bottom = 28.dp),
+        ) {
             if (!guestUrl.isNullOrBlank()) {
                 Button(
                     onClick = {
@@ -660,28 +638,21 @@ private fun StudioPeopleSheet(
                             },
                         )
                     },
+                    modifier = Modifier.fillMaxWidth(),
                 ) { Text(stringResource(R.string.studio_share_guest_link)) }
             }
             if (model.isModerator && waitlist.isNotEmpty()) {
-                Text(stringResource(R.string.studio_waiting_room), color = Color.White, modifier = Modifier.padding(top = 12.dp))
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(vertical = 8.dp)) {
-                    TextButton(onClick = { model.admitAll(AdmitAs.PANELIST) }) { Text(stringResource(R.string.studio_admit_all_panelists)) }
-                    TextButton(onClick = { model.admitAll(AdmitAs.AUDIENCE) }) { Text(stringResource(R.string.studio_admit_all_audience)) }
-                }
-                waitlist.forEach { guest ->
-                    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text(guest.name, modifier = Modifier.weight(1f))
-                        TextButton(onClick = { model.admit(guest, AdmitAs.PANELIST) }) { Text(stringResource(R.string.studio_admit_panelist)) }
-                        TextButton(onClick = { model.admit(guest, AdmitAs.AUDIENCE) }) { Text(stringResource(R.string.studio_admit_audience)) }
-                        TextButton(onClick = { model.deny(guest) }) { Text(stringResource(R.string.studio_deny)) }
-                    }
-                }
+                StudioWaitlistSection(model, waitlist)
             }
             if (model.isModerator && stageRequests.isNotEmpty()) {
-                Text(stringResource(R.string.studio_stage_requests), modifier = Modifier.padding(top = 12.dp))
+                Text(stringResource(R.string.studio_stage_requests), modifier = Modifier.padding(top = 16.dp, bottom = 4.dp))
                 stageRequests.forEach { request ->
-                    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text(request.name, modifier = Modifier.weight(1f))
+                    Row(
+                        Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text(request.name, modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
                         TextButton(onClick = { model.grantStage(request) }) { Text(stringResource(R.string.studio_bring_on_air)) }
                         TextButton(onClick = { model.denyStage(request) }) { Text(stringResource(R.string.studio_deny)) }
                     }
@@ -689,8 +660,17 @@ private fun StudioPeopleSheet(
             }
             participants.forEach { participant ->
                 val onStage = StudioStageLayout.isOnStage(participant.stageStatus)
-                Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text(participant.name + if (participant.isSelf) " (${stringResource(R.string.studio_you)})" else "", modifier = Modifier.weight(1f))
+                val label = if (participant.isSelf) {
+                    "${participant.name} (${stringResource(R.string.studio_you)})"
+                } else {
+                    participant.name
+                }
+                Row(
+                    Modifier.fillMaxWidth().padding(vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Text(label, modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text(stringResource(if (onStage) R.string.studio_on_stage else R.string.studio_audience), fontSize = 12.sp)
                     if (model.isModerator && !participant.isSelf) {
                         IconButton(onClick = { onConfirm(HostConfirm.Kick(participant)) }) {
@@ -699,6 +679,66 @@ private fun StudioPeopleSheet(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun StudioWaitlistSection(model: StudioRoomModel, waitlist: List<StudioWaitlistedGuest>) {
+    var admitAllOpen by remember { mutableStateOf(false) }
+    var admitGuestId by remember { mutableStateOf<String?>(null) }
+    Row(
+        Modifier.fillMaxWidth().padding(top = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(stringResource(R.string.studio_waiting_room), modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Box {
+            TextButton(onClick = { admitAllOpen = true }) { Text(stringResource(R.string.studio_admit_all)) }
+            DropdownMenu(expanded = admitAllOpen, onDismissRequest = { admitAllOpen = false }) {
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.studio_admit_all_panelists)) },
+                    onClick = {
+                        model.admitAll(AdmitAs.PANELIST)
+                        admitAllOpen = false
+                    },
+                )
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.studio_admit_all_audience)) },
+                    onClick = {
+                        model.admitAll(AdmitAs.AUDIENCE)
+                        admitAllOpen = false
+                    },
+                )
+            }
+        }
+    }
+    waitlist.forEach { guest ->
+        Row(
+            Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            Text(guest.name, modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Box {
+                TextButton(onClick = { admitGuestId = guest.id }) { Text(stringResource(R.string.studio_admit)) }
+                DropdownMenu(expanded = admitGuestId == guest.id, onDismissRequest = { admitGuestId = null }) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.studio_admit_panelist)) },
+                        onClick = {
+                            model.admit(guest, AdmitAs.PANELIST)
+                            admitGuestId = null
+                        },
+                    )
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.studio_admit_audience)) },
+                        onClick = {
+                            model.admit(guest, AdmitAs.AUDIENCE)
+                            admitGuestId = null
+                        },
+                    )
+                }
+            }
+            TextButton(onClick = { model.deny(guest) }) { Text(stringResource(R.string.studio_deny)) }
         }
     }
 }
