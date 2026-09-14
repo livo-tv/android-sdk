@@ -1,3 +1,10 @@
+# [1.0.0-rc.7](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2026-09-14)
+
+
+### Features
+
+* streamline StudioInRoom component and remove unused variables ([ad12bd0](https://github.com/livo-tv/android-sdk/commit/ad12bd038b9b0a57688fadf9276dd5dd7003a2e0))
+
 # [1.0.0-rc.6](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2026-09-13)
 
 
