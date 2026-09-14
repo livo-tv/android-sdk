@@ -1,3 +1,10 @@
+# [1.0.0-rc.8](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2026-09-14)
+
+
+### Features
+
+* enhance documentation and publishing configuration for Kotlin modules ([2b6f968](https://github.com/livo-tv/android-sdk/commit/2b6f9680aa0964c82fc91fd3eb23dc4799073957))
+
 # [1.0.0-rc.7](https://github.com/livo-tv/android-sdk/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2026-09-14)
 
 
