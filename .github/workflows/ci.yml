@@ -23,7 +23,11 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@v4
+        with:
+          # Default still includes the obsolete `tools` package (sdkmanager
+          # "Failed to find package 'tools'"). cmdline-tools replaced it.
+          packages: "platform-tools"
 
       - uses: gradle/actions/setup-gradle@v4
 

@@ -90,6 +90,7 @@ Partner apps receive `hostToken` / `guestToken` from their backend (`POST /strea
 - Binary compatibility dumps live at `livo-api/api/livo-api.api`. Run `:livo-api:apiDump` when the public API changes.
 - ktlint 1.5 only honors `ktlint_function_naming_ignore_when_annotated_with=Composable` from a root `.editorconfig` (Gradle `editorConfigOverride` alone is ignored). Without it, PascalCase `@Composable` functions fail `spotlessKotlinApply`.
 - Windows checkouts store `*.sh` / `gradlew` as `100644`. CI must `bash ./scripts/ci-check.sh` (and `bash ./gradlew`); `./scripts/ci-check.sh` is exit 126 otherwise. `git update-index --chmod=+x` if a Unix checkout needs `./`.
+- `android-actions/setup-android` default packages include obsolete SDK `tools` (`sdkmanager` "Failed to find package 'tools'"). Pin v4 and `packages: "platform-tools"`. Do not restore `tools`.
 - Gradle wrapper must be **8.13+** (AGP 8.12). `8.11.1` fails `Minimum supported Gradle version is 8.13` on `:example`.
 - `JsonObject.get` is not Kotlin-null when the value is JSON `null`. Decoding that as `String` throws `Expected string value for a non-null key 'primitive'`. Use `livoJson.decodeOrNull`. Scheduled webinars send `playbackUrl: null` and `ingest: null` on `GET /streams/:id`.
 
