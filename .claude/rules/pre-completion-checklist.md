@@ -1,8 +1,3 @@
----
-description: Mandatory quality gates before marking work done in android-sdk
-alwaysApply: true
----
-
 # Pre-completion checklist (android-sdk)
 
 **CRITICAL**: Do not mark work done until the gate is green.

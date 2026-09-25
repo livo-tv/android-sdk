@@ -21,3 +21,5 @@ node_modules/
 .kotlin-api/
 api/*.api
 !livo-api/api/livo-api.api
+.claude/settings.local.json
+CLAUDE.local.md

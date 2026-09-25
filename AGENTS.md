@@ -35,7 +35,7 @@ Inside a single-repo checkout (cloud agent / Bugbot), the fragments below are th
 
 - Multi-repo under GitHub org `livo-tv`; **two Cloudflare accounts** (Dev + Prod) — see harness ADR 0001; deploy via Workers Builds on push (not GHA, except media-engine → Modal, ios-app → TestFlight on `main`, and android-app → Google Play).
 - Never local-deploy Workers, Modal, TestFlight, App Store, Play, or Maven Central from an agent (Workers Builds / CI owns deploy).
-- Local/desktop agents: do not commit or push unless the user asks. Cloud agents: commit and push with conventional commits so PRs/CI can run. Unless the user names `main`, a hotfix, or `/promote`, branch from `origin/dev` and open the PR **into `dev`** so ADR 0027 previews run (`https://<slug>-<worker>.livo-tv.workers.dev` / `https://<svc>-<slug>.livo-tv.workers.dev`). `harness` has no `dev` — stay on `main`. Do not run `preview:upload` / `preview-stack.mjs` from the agent.
+- Local agents (Cursor Desktop and the Claude Code CLI): do not commit or push unless the user asks. Cloud agents (Cursor cloud, Claude Code on the web, and the Claude GitHub Action): commit and push with conventional commits so PRs/CI can run. Unless the user names `main`, a hotfix, or `/promote`, branch from `origin/dev` and open the PR **into `dev`** (`gh pr create --base dev`) so ADR 0027 previews run (`https://<slug>-<worker>.livo-tv.workers.dev` / `https://<svc>-<slug>.livo-tv.workers.dev`). A hotfix PR uses a `hotfix/*` branch and `--base main`. `harness` has no `dev` — stay on `main`. Agents never merge PRs (`gh pr merge` is denied) and never squash a promote. Do not run `preview:upload` / `preview-stack.mjs` from the agent. Do not add `no-preview` unless asked.
 - Never hand-bump package `version` — semantic-release owns it.
 - Repos with `dev`: land product work (including library pins) on dev.
   `main` is reached only by promoting dev, except a rare hotfix. Do not
@@ -74,7 +74,7 @@ Partner apps receive `hostToken` / `guestToken` from their backend (`POST /strea
 ## Hard rules
 
 - Never local `wrangler deploy` / `pnpm deploy*` / `modal deploy` — CI owns deploy.
-- Local/desktop agents: do not commit/push unless the user asks. Cloud agents: commit and push with conventional commits. Branch from `origin/dev` and open the PR into `dev` (harness: `main` only) unless the user asked for a hotfix or `/promote`. That PR starts ADR 0027 previews.
+- Local agents (Cursor Desktop and the Claude Code CLI): do not commit/push unless the user asks. Cloud agents (Cursor cloud, Claude Code on the web, and the Claude GitHub Action): commit and push with conventional commits. Branch from `origin/dev` and open the PR into `dev` (`gh pr create --base dev`; harness: `main` only) unless the user asked for a hotfix (`hotfix/*`, `--base main`) or `/promote`. Agents never merge PRs. That PR starts ADR 0027 previews.
 - Never hand-bump `version` in package.json / pyproject.toml — semantic-release owns versions.
 - If you change a cross-service contract, binding, or durable fact: update `## Learnings` and the matching `harness/platform/` doc in the same task.
 - After a stable release or hotfix on `main`, merge `main` back into dev before the next dev → `main` PR (ADR 0026). Fast-forward when dev has nothing new. Do not re-promote a dev-sync-only merge.
